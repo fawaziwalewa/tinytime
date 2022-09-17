@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -57,11 +58,22 @@
     <section id="wrapper" class="black">
 
         <div class="container-fluid animated" id="home">
-            {{-- <div class="row logo-row">
-                <a href="#" class="brand">
-					<img src="/vendor/images/logo.png" alt="">
-				</a>
-            </div><!-- Brand Logo --> --}}
+            <div class="container text-end">
+                <a href="#" class="moon eclipse d-none" data-bs-toggle="tooltip" data-bs-placement="left"
+                    title="Dark Mode">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                        <path
+                            d="M24 42.3q-7.65 0-12.975-5.325Q5.7 31.65 5.7 24q0-7.65 5.325-13T24 5.65q.25 0 .65.025l1.2.075q-1.8 1.85-2.55 4.2-.75 2.35-.75 4.45 0 4.4 3.15 7.725 3.15 3.325 7.95 3.325 2.55 0 4.725-.775T42.25 22.4q.05.65.075 1.075.025.425.025.525 0 7.65-5.35 12.975Q31.65 42.3 24 42.3Z" />
+                    </svg>
+                </a>
+                <a href="#" class="sun eclipse" data-bs-toggle="tooltip" data-bs-placement="left"
+                title="Light Mode">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" fill="#fff">
+                        <path
+                            d="M20 28.667q-3.625 0-6.146-2.521T11.333 20q0-3.625 2.521-6.167 2.521-2.541 6.146-2.541t6.167 2.541q2.541 2.542 2.541 6.167t-2.541 6.146Q23.625 28.667 20 28.667ZM3.042 21.75q-.709 0-1.209-.521-.5-.521-.5-1.229 0-.708.5-1.229.5-.521 1.209-.521h3.916q.709 0 1.23.521.52.521.52 1.229 0 .708-.52 1.229-.521.521-1.23.521Zm30 0q-.709 0-1.209-.521-.5-.521-.5-1.229 0-.708.5-1.229.5-.521 1.209-.521h3.916q.709 0 1.23.521.52.521.52 1.229 0 .708-.52 1.229-.521.521-1.23.521ZM20 8.667q-.708 0-1.229-.5-.521-.5-.521-1.209V3.042q0-.709.521-1.229.521-.521 1.229-.521.708 0 1.229.521.521.52.521 1.229v3.916q0 .709-.521 1.209-.521.5-1.229.5Zm0 30q-.708 0-1.229-.5-.521-.5-.521-1.209v-3.916q0-.709.521-1.23.521-.52 1.229-.52.708 0 1.229.52.521.521.521 1.23v3.916q0 .709-.521 1.209-.521.5-1.229.5ZM9.583 12 7.375 9.833q-.5-.5-.5-1.229 0-.729.5-1.229.5-.5 1.229-.5.729 0 1.271.5L12 9.542q.5.541.5 1.25 0 .708-.5 1.166-.458.542-1.188.542-.729 0-1.229-.5Zm20.584 20.625L28 30.417q-.5-.5-.479-1.188.021-.687.521-1.229.458-.5 1.166-.5.709 0 1.25.5l2.167 2.125q.5.542.5 1.271 0 .729-.5 1.229-.5.5-1.229.5-.729 0-1.229-.5ZM28 12q-.5-.5-.5-1.208 0-.709.5-1.25l2.167-2.167q.5-.5 1.229-.5.729 0 1.229.5.5.5.5 1.229 0 .729-.5 1.229L30.458 12q-.541.5-1.229.5-.687 0-1.229-.5ZM7.375 32.625q-.5-.5-.5-1.229 0-.729.5-1.271L9.583 28q.5-.5 1.188-.5.687 0 1.229.5.5.5.5 1.208 0 .709-.5 1.209l-2.125 2.208q-.542.5-1.271.5-.729 0-1.229-.5Z" />
+                    </svg>
+                </a>
+            </div><!-- Brand Logo -->
             <div class="middle-area">
                 <div class="row dxa">
                     <div class="col-md-6 mx-auto">
@@ -81,7 +93,7 @@
                         @endif
                         @if ($message = Session::get('invalid_link'))
                             <div class="alert alert-danger alert-dismissible" role="alert">
-                                <strong>Oops!</strong> Invalid link, link must have expired or does not exist. 
+                                <strong>Oops!</strong> Invalid link, link must have expired or does not exist.
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                     aria-label="Close"></button>
                             </div>
@@ -92,13 +104,17 @@
                 </div> <!-- Title & Subtitle -->
 
                 <div class="container">
-                    <div class="text-center">
-                        <button class="btn btn-success timer-btn" id="fiveMin">5 min</button>
-                        <button class="btn btn-success timer-btn" id="tenMin">10 min</button>
-                        <button class="btn btn-success timer-btn" id="fifMin">15 min</button>
-                        <button class="btn btn-success timer-btn" id="tweMin">20 min</button>
-                        <button class="btn btn-success timer-btn" id="thiMin">30 min</button>
-                        <button class="btn btn-success timer-btn" id="oneHour">1 hr</button>
+                    <div class="row text-center">
+                        <div class="col-md-6 col-sm-12 text-md-end">
+                            <button class="btn btn-success timer-btn" id="fiveMin">5 min</button>
+                            <button class="btn btn-success timer-btn" id="tenMin">10 min</button>
+                            <button class="btn btn-success timer-btn" id="fifMin">15 min</button>
+                        </div>
+                        <div class="col-md-6 col-sm-12 text-md-start mt-md-0 mt-sm-3">
+                            <button class="btn btn-success timer-btn" id="tweMin">20 min</button>
+                            <button class="btn btn-success timer-btn" id="thiMin">30 min</button>
+                            <button class="btn btn-success timer-btn" id="oneHour">1 hr</button>
+                        </div>
                     </div>
                 </div>
                 <div class="countdown" data-end="July 22, 2022 12:45:58"></div>
@@ -121,14 +137,14 @@
                         <button class="btn btn-danger timer-btn" id="stop">STOP</button>
                     </div>
                     <div class="text-center mt-3 dxa">
-                        <button class="btn btn-secondary et" id="counter">COUNTER</button>
-                        <button class="btn btn-success set-custom-timer" data-bs-toggle="modal"
+                        <button class="btn btn-secondary et hundred" id="counter">COUNTER</button>
+                        <button class="btn btn-success set-custom-timer hundred" data-bs-toggle="modal"
                             data-bs-target="#customTimer">CUSTOM</button>
-                        <button class="btn btn-primary et" data-bs-toggle="modal"
-                            data-bs-target="#embedTimer" id="more">SHARE</button>
+                        <button class="btn btn-primary et hundred" data-bs-toggle="modal" data-bs-target="#embedTimer"
+                            id="more">SHARE</button>
                     </div>
                 </div>
-                
+
 
                 <div class="row dxa">
                     <div class="subscribe text-center">
@@ -169,8 +185,8 @@
                                     target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
                             <li data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter">
-                                <a href="{{ 'https://twitter.com/share?url=' . config('app.url') }}" target="_blank"><i
-                                        class="fa fa-twitter"></i></a>
+                                <a href="{{ 'https://twitter.com/share?url=' . config('app.url') }}"
+                                    target="_blank"><i class="fa fa-twitter"></i></a>
                             </li>
                             {{-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="Pinterest">
                                 <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
@@ -380,10 +396,10 @@
                                 </select>
                             </div>
                             <div class="input-group mb-3 d-none" id="generatedLink">
-                                <input type="url" class="form-control" placeholder="Generated link" id="generated_url"
-                                    aria-label="Generated link" aria-describedby="generatedLink"  value="https://tiny.test/custom-timer/%7Blink_id%7D">
-                                <span class="input-group-text bg-primary text-white"
-                                    role="button">COPY</span>
+                                <input type="url" class="form-control" placeholder="Generated link"
+                                    id="generated_url" aria-label="Generated link" aria-describedby="generatedLink"
+                                    value="https://tiny.test/custom-timer/%7Blink_id%7D">
+                                <span class="input-group-text bg-primary text-white" role="button">COPY</span>
                             </div>
                             <div class="form-floating d-none" id="emBedLink">
                                 <textarea class="form-control" placeholder="" rows="10" style="min-height: 80px"><iframe src="https://tiny.test/custom-timer/%7Blink_id%7D" width="100%" height="300"></iframe></textarea>
@@ -409,7 +425,26 @@
     <script src="/vendor/js/main.js"></script>
     <!-- Livewire Script -->
     @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+        $('.sun').on('click', function () {
+            $(this).addClass('d-none');
+            $('.moon').removeClass('d-none');
+            $('#wrapper').addClass('white');
+            $('#wrapper').removeClass('black');
 
+        });
+        $('.moon').on('click', function () {
+            $(this).addClass('d-none');
+            $('.sun').removeClass('d-none');
+            $('#wrapper').addClass('black');
+            $('#wrapper').removeClass('white');
+        });
+    </script>
 </body>
 
 </html>

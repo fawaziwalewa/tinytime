@@ -1854,7 +1854,7 @@ section {
         padding: 0 15px;
     }
     .timer-btn{
-        margin: 0px !important;;
+        margin-top: 10px !important;
     }
 }
 
@@ -1930,6 +1930,22 @@ section {
 .timer-btn {
     margin: 0px 10px;
     color: #fff !important;
+    width: 80px;
+}
+
+.eclipse{
+    text-decoration: none;
+}
+
+.hundred{
+    width: 100px;
+}
+
+.ClassyCountdown-wrapper > div {
+    max-height: 206px !important;
+}
+canvas {
+    max-height: 206px !important;
 }
 /* .timer-btn {
     font-size: 15px;

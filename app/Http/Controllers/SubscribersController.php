@@ -9,6 +9,7 @@ use App\Mail\Subscribers;
 use App\Mail\Subscription;
 use App\Models\Subscribers as SubscribersModel;
 use App\Models\Unsubscribe;
+use App\Models\subscribersPassword;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use App\Exports\SubscribersExport;
@@ -20,10 +21,23 @@ class SubscribersController extends Controller
 {
     public function index(Request $request){
         $subscribers = SubscribersModel::paginate(10);
+        $psw = subscribersPassword::find(1);
+        // dd($psw->trials);
         if(isset($request->password)){
-            if (Hash::check($request->password, '$2y$10$EKLxBrC7uVGHpHoLPoMdceq.irLHPqXJThmX6FIUtZpET.odPxbFu')) {
+            if ($psw->trials > 4) {
+                return redirect()->back()->withErrors(['password' => ['This account is blocked.']]);
+            }
+            if (Hash::check($request->password, $psw->password)) {
+                $psw->update([
+                    'trials' => 0,
+                ]);
                 return view('subscribers', compact('subscribers'));
             }
+
+            $psw->update([
+                'trials' => $psw->trials + 1,
+            ]);
+
             return redirect()->back()->withErrors(['password' => ['Invalid Password.']]);
         }
         return view('password');

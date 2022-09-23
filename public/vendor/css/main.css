@@ -271,7 +271,8 @@ canvas,
 progress,
 video {
     display: inline-block;
-    vertical-align: baseline
+    vertical-align: baseline;
+    z-index: -1;
 }
 
 a {
@@ -1941,11 +1942,13 @@ section {
     width: 100px;
 }
 
-.ClassyCountdown-wrapper > div {
-    max-height: 206px !important;
-}
-canvas {
-    max-height: 206px !important;
+@media (max-width: 530px) {
+    .ClassyCountdown-wrapper > div {
+        max-height: 206px !important;
+    }
+    canvas {
+        max-height: 206px !important;
+    }
 }
 /* .timer-btn {
     font-size: 15px;

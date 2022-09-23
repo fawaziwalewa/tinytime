@@ -25,7 +25,7 @@
 
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="/vendor/css/main.css">
-    @vite(['resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <script src="/vendor/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
@@ -55,23 +55,33 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <section id="wrapper" class="black">
-
+    <section id="wrapper" class="video">
+        <video autoplay loop width="100" muted playsinline height="100" id="bgvid">
+            <source src="/vendor/video/nature.mp4" type="video/mp4">
+        </video>
         <div class="container-fluid animated" id="home">
             <div class="container text-end">
                 <a href="#" class="moon eclipse d-none" data-bs-toggle="tooltip" data-bs-placement="left"
-                    title="Dark Mode">
+                    data-trigger="hover" title="Dark Mode">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
                         <path
                             d="M24 42.3q-7.65 0-12.975-5.325Q5.7 31.65 5.7 24q0-7.65 5.325-13T24 5.65q.25 0 .65.025l1.2.075q-1.8 1.85-2.55 4.2-.75 2.35-.75 4.45 0 4.4 3.15 7.725 3.15 3.325 7.95 3.325 2.55 0 4.725-.775T42.25 22.4q.05.65.075 1.075.025.425.025.525 0 7.65-5.35 12.975Q31.65 42.3 24 42.3Z" />
                     </svg>
                 </a>
                 <a href="#" class="sun eclipse" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Light Mode">
+                    data-trigger="hover" title="Light Mode">
                     <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" fill="#fff">
                         <path
                             d="M20 28.667q-3.625 0-6.146-2.521T11.333 20q0-3.625 2.521-6.167 2.521-2.541 6.146-2.541t6.167 2.541q2.541 2.542 2.541 6.167t-2.541 6.146Q23.625 28.667 20 28.667ZM3.042 21.75q-.709 0-1.209-.521-.5-.521-.5-1.229 0-.708.5-1.229.5-.521 1.209-.521h3.916q.709 0 1.23.521.52.521.52 1.229 0 .708-.52 1.229-.521.521-1.23.521Zm30 0q-.709 0-1.209-.521-.5-.521-.5-1.229 0-.708.5-1.229.5-.521 1.209-.521h3.916q.709 0 1.23.521.52.521.52 1.229 0 .708-.52 1.229-.521.521-1.23.521ZM20 8.667q-.708 0-1.229-.5-.521-.5-.521-1.209V3.042q0-.709.521-1.229.521-.521 1.229-.521.708 0 1.229.521.521.52.521 1.229v3.916q0 .709-.521 1.209-.521.5-1.229.5Zm0 30q-.708 0-1.229-.5-.521-.5-.521-1.209v-3.916q0-.709.521-1.23.521-.52 1.229-.52.708 0 1.229.52.521.521.521 1.23v3.916q0 .709-.521 1.209-.521.5-1.229.5ZM9.583 12 7.375 9.833q-.5-.5-.5-1.229 0-.729.5-1.229.5-.5 1.229-.5.729 0 1.271.5L12 9.542q.5.541.5 1.25 0 .708-.5 1.166-.458.542-1.188.542-.729 0-1.229-.5Zm20.584 20.625L28 30.417q-.5-.5-.479-1.188.021-.687.521-1.229.458-.5 1.166-.5.709 0 1.25.5l2.167 2.125q.5.542.5 1.271 0 .729-.5 1.229-.5.5-1.229.5-.729 0-1.229-.5ZM28 12q-.5-.5-.5-1.208 0-.709.5-1.25l2.167-2.167q.5-.5 1.229-.5.729 0 1.229.5.5.5.5 1.229 0 .729-.5 1.229L30.458 12q-.541.5-1.229.5-.687 0-1.229-.5ZM7.375 32.625q-.5-.5-.5-1.229 0-.729.5-1.271L9.583 28q.5-.5 1.188-.5.687 0 1.229.5.5.5.5 1.208 0 .709-.5 1.209l-2.125 2.208q-.542.5-1.271.5-.729 0-1.229-.5Z" />
                     </svg>
+                </a>
+                <a href="#" class="video eclipse d-none" data-bs-toggle="tooltip" data-bs-placement="left"
+                    data-trigger="hover" title="Video Mode">
+                    <img src="/images/play.png" alt="Play" width="35">
+                    {{-- <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#fff">
+                        <path
+                            d="M19.6 31.7 31.7 24l-12.1-7.7ZM24 43q-3.9 0-7.375-1.5t-6.05-4.075Q8 34.85 6.5 31.375 5 27.9 5 24q0-3.95 1.5-7.425Q8 13.1 10.575 10.55 13.15 8 16.625 6.5 20.1 5 24 5q3.95 0 7.425 1.5Q34.9 8 37.45 10.55 40 13.1 41.5 16.575 43 20.05 43 24q0 3.9-1.5 7.375t-4.05 6.05Q34.9 40 31.425 41.5 27.95 43 24 43Zm0-2.25q7 0 11.875-4.9T40.75 24q0-7-4.875-11.875T24 7.25q-6.95 0-11.85 4.875Q7.25 17 7.25 24q0 6.95 4.9 11.85 4.9 4.9 11.85 4.9ZM24 24Z" />
+                    </svg> --}}
                 </a>
             </div><!-- Brand Logo -->
             <div class="middle-area">
@@ -108,10 +118,10 @@
                         <div class="col-md-6 col-sm-12 text-md-end">
                             <button class="btn btn-success timer-btn" id="fiveMin">5 min</button>
                             <button class="btn btn-success timer-btn" id="tenMin">10 min</button>
-                            <button class="btn btn-success timer-btn" id="fifMin">15 min</button>
+                            <button class="btn btn-success timer-btn me-md-0" id="fifMin">15 min</button>
                         </div>
                         <div class="col-md-6 col-sm-12 text-md-start mt-md-0 mt-sm-3">
-                            <button class="btn btn-success timer-btn" id="tweMin">20 min</button>
+                            <button class="btn btn-success timer-btn ms-md-0" id="tweMin">20 min</button>
                             <button class="btn btn-success timer-btn" id="thiMin">30 min</button>
                             <button class="btn btn-success timer-btn" id="oneHour">1 hr</button>
                         </div>
@@ -140,8 +150,8 @@
                         <button class="btn btn-secondary et hundred" id="counter">COUNTER</button>
                         <button class="btn btn-success set-custom-timer hundred" data-bs-toggle="modal"
                             data-bs-target="#customTimer">CUSTOM</button>
-                        <button class="btn btn-primary et hundred" data-bs-toggle="modal" data-bs-target="#embedTimer"
-                            id="more">SHARE</button>
+                        <button class="btn btn-primary et hundred" data-bs-toggle="modal"
+                            data-bs-target="#embedTimer" id="more">SHARE</button>
                     </div>
                 </div>
 
@@ -425,24 +435,33 @@
     <script src="/vendor/js/main.js"></script>
     <!-- Livewire Script -->
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
         var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-        $('.sun').on('click', function () {
+            return new bootstrap.Tooltip(tooltipTriggerEl, {
+                trigger: 'hover'
+            });
+        });
+        $('.sun').on('click', function() {
             $(this).addClass('d-none');
             $('.moon').removeClass('d-none');
             $('#wrapper').addClass('white');
             $('#wrapper').removeClass('black');
-
         });
-        $('.moon').on('click', function () {
+        $('.moon').on('click', function() {
             $(this).addClass('d-none');
-            $('.sun').removeClass('d-none');
+            $('.eclipse.video').removeClass('d-none');
             $('#wrapper').addClass('black');
             $('#wrapper').removeClass('white');
+        });
+        $('.eclipse.video').on('click', function() {
+            $(this).addClass('d-none');
+            $('.sun').removeClass('d-none');
+            $('#wrapper').addClass('video');
+            $('#wrapper').removeClass('black');
         });
     </script>
 </body>

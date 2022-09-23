@@ -25,7 +25,8 @@
 
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="/vendor/css/main.css">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> --}}
 
     <script src="/vendor/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
@@ -305,7 +306,7 @@
             </div>
         </div> <!-- Reach Us Page -->
         <!-- Set Custom Timer Modal -->
-        <div class="modal fade" id="customTimer" tabindex="-1" aria-labelledby="customTimerLabel"
+        <div class="modal fade text-black" id="customTimer" tabindex="-1" aria-labelledby="customTimerLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -355,7 +356,7 @@
             </div>
         </div>
         <!-- Embed Code Modal -->
-        <div class="modal fade" id="embedTimer" tabindex="-1" aria-labelledby="embedTimerLabel"
+        <div class="modal fade text-black" id="embedTimer" tabindex="-1" aria-labelledby="embedTimerLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -435,9 +436,11 @@
     <script src="/vendor/js/main.js"></script>
     <!-- Livewire Script -->
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+    </script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> --}}
+
     <script>
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
         var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {

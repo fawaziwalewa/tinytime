@@ -4,22 +4,20 @@
 <head>
 
     <meta charset="utf-8">
-    <title>{{ config('app.name') }}</title>
-    <meta name="description" content="">
+    <title>{{ config('app.name') }} - Homepage</title>
+    <meta name="description" content="{{ config('app.description') }}">
+    <meta name="keywords" content="tinytime, time, tiny time, counter, timer, tinytime counter, tinytime timer, tiny time timer, tiny timer counter, time to get organized and be productive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/images/stopwatch.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css"> --}}
 
     <!-- Countdown Stylesheet -->
     <link rel="stylesheet" href="/vendor/css/jquery.classycountdown.min.css">
-
-    <!-- Animate Stylesheet
-    <link rel="stylesheet" href="/vendor/css/animate.css">-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -29,13 +27,6 @@
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> --}}
 
     <script src="/vendor/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
-    <!-- Livewire Styles -->
-    @livewireStyles
-
-    {{-- Timepicker --}}
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.13.18/jquery.timepicker.min.css"> --}}
-
     {{-- Facebook --}}
     <meta property="og:url" content="{{ config('app.url') }}" />
     <meta property="og:type" content="website" />
@@ -79,10 +70,6 @@
                 <a href="#" class="video eclipse d-none" data-bs-toggle="tooltip" data-bs-placement="left"
                     data-trigger="hover" title="Video Mode">
                     <img src="/images/play.png" alt="Play" width="35">
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#fff">
-                        <path
-                            d="M19.6 31.7 31.7 24l-12.1-7.7ZM24 43q-3.9 0-7.375-1.5t-6.05-4.075Q8 34.85 6.5 31.375 5 27.9 5 24q0-3.95 1.5-7.425Q8 13.1 10.575 10.55 13.15 8 16.625 6.5 20.1 5 24 5q3.95 0 7.425 1.5Q34.9 8 37.45 10.55 40 13.1 41.5 16.575 43 20.05 43 24q0 3.9-1.5 7.375t-4.05 6.05Q34.9 40 31.425 41.5 27.95 43 24 43Zm0-2.25q7 0 11.875-4.9T40.75 24q0-7-4.875-11.875T24 7.25q-6.95 0-11.85 4.875Q7.25 17 7.25 24q0 6.95 4.9 11.85 4.9 4.9 11.85 4.9ZM24 24Z" />
-                    </svg> --}}
                 </a>
             </div><!-- Brand Logo -->
             <div class="middle-area">
@@ -128,16 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="countdown" data-end="July 22, 2022 12:45:58"></div>
-                {{-- <div class="row">
-                    <div class="col-md-6">
-
-                    </div>
-                    <div class="col-md-6">
-                    </div>
-                </div> --}}
-                {{-- <div class="container">
-                </div> --}}
+                <div class="countdown" data-end="September 25, 2022 12:45:58"></div>
                 <!-- Countdown Timer December 16, 2022 11:13:00-->
 
                 <div class="container mb-5">
@@ -199,29 +177,10 @@
                                 <a href="{{ 'https://twitter.com/share?url=' . config('app.url') }}"
                                     target="_blank"><i class="fa fa-twitter"></i></a>
                             </li>
-                            {{-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="Pinterest">
-                                <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
-                            </li>
-                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Linkedin">
-                                <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Dribble">
-                                <a href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
-                            </li> --}}
                         </ul><!-- Social Media -->
                     </div>
                 </div>
 
-                {{-- <div class="col-sm-3 col-xs-5 col-sm-pull-6">
-                    <div class="row">© 2018 loop</div>
-                </div>
-
-                <div class="col-sm-3 col-xs-7">
-                    <div class="row text-right">
-						made with love at
-						<a href="http://www.creative-era.com"><img src="/vendor/images/dev-logo.png" alt=""></a>
-					</div>
-                </div> --}}
             </div> <!-- Footer -->
 
             <!-- Page Links -->
@@ -229,7 +188,7 @@
 			<a href="#reach" class="page-link right"><img src="/vendor/images/reach-inverse.png" alt=""></a> --}}
         </div> <!-- Home Page -->
 
-        <div class="container-fluid otherpage animated dxa" id="about">
+        {{-- <div class="container-fluid otherpage animated dxa" id="about">
 
 
             <div class="container discription">
@@ -261,9 +220,9 @@
                     </a>
                 </div>
             </div>
-        </div> <!-- About Us Page -->
+        </div> <!-- About Us Page --> --}}
 
-        <div class="container-fluid otherpage animated d" id="reach">
+        {{-- <div class="container-fluid otherpage animated d" id="reach">
 
 
             <div class="container discription">
@@ -304,14 +263,14 @@
                     </a>
                 </div>
             </div>
-        </div> <!-- Reach Us Page -->
+        </div> <!-- Reach Us Page --> --}}
         <!-- Set Custom Timer Modal -->
         <div class="modal fade text-black" id="customTimer" tabindex="-1" aria-labelledby="customTimerLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="customTimerLabel">Custom Timer</h5>
+                        <h5 class="modal-title" id="customTimerLabel">Custom Timer or Counter</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
@@ -413,7 +372,7 @@
                                 <span class="input-group-text bg-primary text-white" role="button">COPY</span>
                             </div>
                             <div class="form-floating d-none" id="emBedLink">
-                                <textarea class="form-control" placeholder="" rows="10" style="min-height: 80px"><iframe src="https://tiny.test/custom-timer/%7Blink_id%7D" width="100%" height="300"></iframe></textarea>
+                                <textarea class="form-control" placeholder="" rows="10"><iframe src="https://tiny.test/custom-timer/%7Blink_id%7D" width="100%" height="300"></iframe></textarea>
                                 <label for="emBedLink">Embed</label>
                             </div>
                         </form>
@@ -428,45 +387,11 @@
     </section><!-- Main Wrapper -->
 
     {{-- <script src="/vendor/js/bootstrap.min.js"></script>s --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> --}}
     <script src="/vendor/js/jquery.classycountdown.min.js"></script>
     <script src="/vendor/js/jquery.knob.js"></script>
     <script src="/vendor/js/jquery.throttle.js"></script>
-    {{-- Timepicker --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/timepicker@1.13.18/jquery.timepicker.min.js"></script> --}}
     <script src="/vendor/js/main.js"></script>
-    <!-- Livewire Script -->
-    @livewireScripts
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script> --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> --}}
-
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl, {
-                trigger: 'hover'
-            });
-        });
-        $('.sun').on('click', function() {
-            $(this).addClass('d-none');
-            $('.moon').removeClass('d-none');
-            $('#wrapper').addClass('white');
-            $('#wrapper').removeClass('black');
-        });
-        $('.moon').on('click', function() {
-            $(this).addClass('d-none');
-            $('.eclipse.video').removeClass('d-none');
-            $('#wrapper').addClass('black');
-            $('#wrapper').removeClass('white');
-        });
-        $('.eclipse.video').on('click', function() {
-            $(this).addClass('d-none');
-            $('.sun').removeClass('d-none');
-            $('#wrapper').addClass('video');
-            $('#wrapper').removeClass('black');
-        });
-    </script>
 </body>
 
 </html>

@@ -1,8 +1,15 @@
-window._ = require('lodash');
+import window from "lodash";
+// import * as bootstrap from "bootstrap";
 
-try {
-    require('bootstrap');
-} catch (e) {}
+window._ = window;
+
+// try {
+//     bootstrap = bootstrap;
+//     window.bootstrap = bootstrap;
+// } catch (e) {
+//     console.error(e);
+//     console.log("NEW" + e);
+// }
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

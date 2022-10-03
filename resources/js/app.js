@@ -14,3 +14,8 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         trigger: "hover",
     });
 });
+
+import.meta.glob([
+    '../images/**',
+    '../vendor/video/**',
+]);

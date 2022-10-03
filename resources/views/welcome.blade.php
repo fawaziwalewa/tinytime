@@ -6,53 +6,38 @@
     <meta charset="utf-8">
     <title>{{ config('app.name') }} - Homepage</title>
     <meta name="description" content="{{ config('app.description') }}">
-    <meta name="keywords" content="tinytime, time, tiny time, counter, timer, tinytime counter, tinytime timer, tiny time timer, tiny timer counter, time to get organized and be productive">
+    <meta name="keywords"
+        content="tinytime, time, tiny time, counter, timer, tinytime counter, tinytime timer, tiny time timer, tiny timer counter, time to get organized and be productive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/images/stopwatch.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <!-- GOOGLE FONTS -->
-    {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css"> --}}
-
-    <!-- Countdown Stylesheet -->
-    <link rel="stylesheet" href="/vendor/css/jquery.classycountdown.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="/vendor/css/main.css">
-    @vite(['resources/js/app.js'])
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> --}}
-
-    <script src="/vendor/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    {{-- <link rel="stylesheet" href="../vendor/css/main.css"> --}}
+    @vite(['resources/js/app.js', 'resources/vendor/css/main.css', 'resources/vendor/css/jquery.classycountdown.min.css'])
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     {{-- Facebook --}}
     <meta property="og:url" content="{{ config('app.url') }}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ config('app.name') }}" />
     <meta property="og:description" content="{{ config('app.description') }}" />
-    <meta property="og:image" content="{{ asset('images/seo_banner.png') }}" />
+    <meta property="og:image" content="{{ Vite::asset('resources/images/seo_banner.png') }}" />
 
     {{-- Twitter --}}
     <meta name="twitter:title" content="{{ config('app.name') }}" />
     <meta name="twitter:description" content="{{ config('app.description') }}" />
     <meta name="twitter:creator" content="@TinyTime" />
-    <meta name="twitter:image" content="{{ asset('images/seo_banner.png') }}">
+    <meta name="twitter:image" content="{{ Vite::asset('resources/images/seo_banner.png') }}">
     <meta name="twitter:domain" content="{{ config('app.url') }}" />
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
     <section id="wrapper" class="video">
         <video autoplay loop width="100" muted playsinline height="100" id="bgvid">
-            <source src="/vendor/video/nature.mp4" type="video/mp4">
+            <source src="{{ Vite::asset('resources/vendor/video/nature.mp4') }}" type="video/mp4">
         </video>
-        <div class="container-fluid animated" id="home">
-            <div class="container text-end">
+        <div class="container-fluid animated position-relative" id="home">
+            <div class="position-absolute top-0 end-0 mode">
                 <a href="#" class="moon eclipse d-none" data-bs-toggle="tooltip" data-bs-placement="left"
                     data-trigger="hover" title="Dark Mode">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
@@ -69,7 +54,7 @@
                 </a>
                 <a href="#" class="video eclipse d-none" data-bs-toggle="tooltip" data-bs-placement="left"
                     data-trigger="hover" title="Video Mode">
-                    <img src="/images/play.png" alt="Play" width="35">
+                    <img src="{{ Vite::asset('resources/images/play.png') }}" alt="Play" width="35">
                 </a>
             </div><!-- Brand Logo -->
             <div class="middle-area">
@@ -118,14 +103,14 @@
                 <div class="countdown" data-end="September 25, 2022 12:45:58"></div>
                 <!-- Countdown Timer December 16, 2022 11:13:00-->
 
-                <div class="container mb-5">
+                <div class="container mb-1">
                     <div class="text-center">
                         <button class="btn btn-success timer-btn" id="start">START</button>
                         <button class="btn btn-warning timer-btn" id="pause">PAUSE</button>
                         <button class="btn btn-primary timer-btn" id="reset">RESET</button>
                         <button class="btn btn-danger timer-btn" id="stop">STOP</button>
                     </div>
-                    <div class="text-center mt-3 dxa">
+                    <div class="text-center mt-1 dxa">
                         <button class="btn btn-secondary et hundred" id="counter">COUNTER</button>
                         <button class="btn btn-success set-custom-timer hundred" data-bs-toggle="modal"
                             data-bs-target="#customTimer">CUSTOM</button>
@@ -164,7 +149,7 @@
                     </div>
                 </div><!-- Subscription -->
             </div>
-            <div class="row footer dxa mt-3">
+            <div class="row footer dxa mt-1">
 
                 <div class="col col-sm-push-3">
                     <div class="row text-center">
@@ -385,13 +370,13 @@
             </div>
         </div>
     </section><!-- Main Wrapper -->
-
-    {{-- <script src="/vendor/js/bootstrap.min.js"></script>s --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> --}}
     <script src="/vendor/js/jquery.classycountdown.min.js"></script>
     <script src="/vendor/js/jquery.knob.js"></script>
     <script src="/vendor/js/jquery.throttle.js"></script>
-    <script src="/vendor/js/main.js"></script>
+    <script src="../vendor/js/main.js"></script>
+    {{-- @vite(['resources/vendor/js/main.js']) --}}
+    {{-- 'resources/vendor/js/jquery.throttle.js',
+     --}}
 </body>
 
 </html>

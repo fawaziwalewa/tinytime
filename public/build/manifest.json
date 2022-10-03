@@ -1,16 +1,61 @@
 {
-  "resources/css/app.css": {
-    "file": "assets/app.7c3c19f8.js",
-    "src": "resources/css/app.css",
-    "isEntry": true
+  "resources/images/play.png": {
+    "file": "assets/play.caeaf4b4.png",
+    "src": "resources/images/play.png"
+  },
+  "resources/images/seo_banner.png": {
+    "file": "assets/seo_banner.c1ad45f5.png",
+    "src": "resources/images/seo_banner.png"
+  },
+  "resources/images/stopwatch.png": {
+    "file": "assets/stopwatch.dcaad8ac.png",
+    "src": "resources/images/stopwatch.png"
+  },
+  "resources/vendor/video/nature.mp4": {
+    "file": "assets/nature.2788ee97.mp4",
+    "src": "resources/vendor/video/nature.mp4"
+  },
+  "resources/vendor/fonts/fontawesome-webfont.eot": {
+    "file": "assets/fontawesome-webfont.e219ece8.eot",
+    "src": "resources/vendor/fonts/fontawesome-webfont.eot"
+  },
+  "resources/vendor/fonts/fontawesome-webfont.woff2": {
+    "file": "assets/fontawesome-webfont.ff82aeed.woff2",
+    "src": "resources/vendor/fonts/fontawesome-webfont.woff2"
+  },
+  "resources/vendor/fonts/fontawesome-webfont.woff": {
+    "file": "assets/fontawesome-webfont.c812ddc9.woff",
+    "src": "resources/vendor/fonts/fontawesome-webfont.woff"
+  },
+  "resources/vendor/fonts/Flaticon.svg": {
+    "file": "assets/Flaticon.dbfde333.svg",
+    "src": "resources/vendor/fonts/Flaticon.svg"
+  },
+  "resources/vendor/fonts/fontawesome-webfont.ttf": {
+    "file": "assets/fontawesome-webfont.7b5a4320.ttf",
+    "src": "resources/vendor/fonts/fontawesome-webfont.ttf"
+  },
+  "resources/vendor/fonts/fontawesome-webfont.svg": {
+    "file": "assets/fontawesome-webfont.8b4822b9.svg",
+    "src": "resources/vendor/fonts/fontawesome-webfont.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app.e1b7bae4.js",
+    "file": "assets/app.38cff3fe.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
       "assets/app.b4f7846d.css"
     ]
+  },
+  "resources/vendor/css/jquery.classycountdown.min.css": {
+    "file": "assets/jquery.classycountdown.min.15a8d7fe.css",
+    "src": "resources/vendor/css/jquery.classycountdown.min.css",
+    "isEntry": true
+  },
+  "resources/vendor/css/main.css": {
+    "file": "assets/main.c023603e.css",
+    "src": "resources/vendor/css/main.css",
+    "isEntry": true
   },
   "resources/js/app.css": {
     "file": "assets/app.b4f7846d.css",

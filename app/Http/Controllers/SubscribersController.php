@@ -25,7 +25,7 @@ class SubscribersController extends Controller
         // dd($psw->trials);
         if(isset($request->password)){
             if ($psw->trials > 4) {
-                return redirect()->back()->withErrors(['password' => ['This account is blocked.']]);
+                return redirect()->back()->withErrors(['password' => ['You have reached the maximum login attemps, the account is locked.']]);
             }
             if (Hash::check($request->password, $psw->password)) {
                 $psw->update([

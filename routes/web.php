@@ -139,8 +139,20 @@ Route::get('/auth/facebook/redirect', function () {
 })->name('facebook.login');
  
 Route::get('/auth/facebook/callback', function () {
-    $user = Socialite::driver('facebook')->user();
-    // $user->token
+    $facebookUser = Socialite::driver('facebook')->user();
+
+    $user = User::updateOrCreate([
+        'email' => $facebookUser->email,
+    ], [
+        'name' => $facebookUser->name,
+        'email' => $facebookUser->email,
+        'password' =>  Str::random(40),
+        'email_verified_at' => now(),
+    ]);
+ 
+    Auth::login($user);
+ 
+    return redirect('/home');
 });
 
 // Twitter Login

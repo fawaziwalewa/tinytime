@@ -1401,7 +1401,7 @@ body {
     background-size: cover
 }
 
-#wrapper p.title {
+#wrapper h1.title {
     color: #fff;
     font-family: 'Lato';
     font-size: 3em;
@@ -1895,6 +1895,9 @@ section {
     }
     canvas {
         max-height: 206px !important;
+    }
+    .footer > .terms > a {
+        display: block;
     }
 }
 textarea{

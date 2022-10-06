@@ -36,8 +36,8 @@
         <video autoplay loop width="100" muted playsinline height="100" id="bgvid">
             <source src="{{ Vite::asset('resources/vendor/video/nature.mp4') }}" type="video/mp4">
         </video>
-        <div class="container-fluid animated position-relative" id="home">
-            <div class="position-absolute top-0 end-0 mode">
+        <div class="container-fluid animated" id="home">
+            <div class="position-absolute top-0 end-0 mode mt-2">
                 <a href="#" class="moon eclipse d-none" data-bs-toggle="tooltip" data-bs-placement="left"
                     data-trigger="hover" title="Dark Mode">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
@@ -82,7 +82,7 @@
                             </div>
                         @endif
                     </div>
-                    <p class="title">{{ config('app.name') }}</p>
+                    <h1 class="title">{{ config('app.name') }}</h1>
                     <p class="subtitle">Time to get organized and be productive.</p>
                 </div> <!-- Title & Subtitle -->
 
@@ -166,8 +166,8 @@
                     </div>
                 </div>
                 <div class="text-center terms">
-                    <a href="{{ route('privacy') }}" target="_blank" class="mx-3">Privacy Policy</a>
-                    <a href="{{ route('terms') }}" target="_blank" class="mx-3">Terms of Services</a>
+                    <a href="{{ route('privacy') }}" target="_blank" class="mx-md-3 mx-sm-2">Privacy Policy</a>
+                    <a href="{{ route('terms') }}" target="_blank" class="mx-md-3 mx-sm-2">Terms of Services</a>
                 </div>
             </div> <!-- Footer -->
             <!-- Page Links -->
@@ -359,7 +359,7 @@
                                 <span class="input-group-text bg-primary text-white" role="button">COPY</span>
                             </div>
                             <div class="form-floating d-none" id="emBedLink">
-                                <textarea class="form-control" placeholder="" rows="10"><iframe src="https://tiny.test/custom-timer/%7Blink_id%7D" width="100%" height="300"></iframe></textarea>
+                                <textarea class="form-control" placeholder="" rows="10">{{-- <iframe src="https://tiny.test/custom-timer/%7Blink_id%7D" width="100%" height="300"></iframe> --}}</textarea>
                                 <label for="emBedLink">Embed</label>
                             </div>
                         </form>

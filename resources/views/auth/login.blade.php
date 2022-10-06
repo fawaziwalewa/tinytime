@@ -8,9 +8,24 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
+                        <div class="col-md-6 mx-auto">
+                            <div class="row flex-cloumn mb-3">
+                                <a href="{{ route("google.login") }}" class="btn btn-danger btn-block mb-2">Google</a>
+                                <a href="{{ route("facebook.login") }}" class="btn btn-primary btn-block mb-2">Facebook</a>
+                                <a href="{{ route("twitter.login") }}" class="btn btn-success btn-block mb-2">Twitter</a>
+                                <a href="{{ route("twitch.login") }}" class="btn btn-dark btn-block mb-2">Twitch</a>
+                            </div>
+                        </div>
+                        <p class="text-center">
+                            OR
+                        </p>
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 

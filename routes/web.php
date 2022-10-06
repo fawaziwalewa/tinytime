@@ -4,7 +4,11 @@ use Illuminate\Support\Str;
 use App\Models\GenerateLink;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\HttpFoundation\Request;
+// use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +26,22 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -78,3 +98,79 @@ Route::post('/adhsfaldhflasdjajjYGSKllsaalksk/export', [App\Http\Controllers\Sub
 Route::post('/subscribers', [App\Http\Controllers\SubscribersController::class, 'sendMail'])->name('subscribers');
 Route::post('/subscribers/{id}', [App\Http\Controllers\SubscribersController::class, 'subscribe'])->name('subscribe');
 Route::get('/unsubscribe/{hash}', [App\Http\Controllers\SubscribersController::class, 'unsubscribe'])->name('unsubscribe');
+
+
+Route::get('/terms-of-services', function(){
+    return view('terms-of-services');
+})->name('terms');
+
+Route::get('/privacy-policy', function(){
+    return view('privacy-policy');
+})->name('privacy');
+
+
+/* Socialite */
+
+// Google Login
+Route::get('/auth/google/redirect', function () {
+    return Socialite::driver('google')->redirect();
+})->name('google.login');
+ 
+Route::get('/auth/google/callback', function () {
+    $googleUser = Socialite::driver('google')->user();
+
+    $user = User::updateOrCreate([
+        'email' => $googleUser->email,
+    ], [
+        'name' => $googleUser->name,
+        'email' => $googleUser->email,
+        'password' =>  Str::random(40),
+        'email_verified_at' =>  now(),
+    ]);
+ 
+    Auth::login($user);
+ 
+    return redirect('/home');
+});
+
+// Facebook Login
+Route::get('/auth/facebook/redirect', function () {
+    return Socialite::driver('facebook')->redirect();
+})->name('facebook.login');
+ 
+Route::get('/auth/facebook/callback', function () {
+    $user = Socialite::driver('facebook')->user();
+    // $user->token
+});
+
+// Twitter Login
+Route::get('/auth/twitter/redirect', function () {
+    return Socialite::driver('twitter')->redirect();
+})->name('twitter.login');
+ 
+Route::get('/auth/twitter/callback', function () {
+    $user = Socialite::driver('twitter')->user();
+    // $user->token
+});
+
+// Twitch Login
+Route::get('/auth/twitch/redirect', function () {
+    return Socialite::driver('twitch')->redirect();
+})->name('twitch.login');
+ 
+Route::get('/auth/twitch/callback', function () {
+    $twitchUser = Socialite::driver('twitch')->user();
+
+    $user = User::updateOrCreate([
+        'email' => $twitchUser->email,
+    ], [
+        'name' => $twitchUser->name,
+        'email' => $twitchUser->email,
+        'password' =>  Str::random(40),
+        'email_verified_at' => now(),
+    ]);
+ 
+    Auth::login($user);
+ 
+    return redirect('/home');
+});

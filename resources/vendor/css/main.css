@@ -1136,7 +1136,7 @@ body {
 }
 
 #wrapper {
-    padding: 15px;
+    padding-top: 15px;
     position: relative;
     overflow-x: hidden;
     height: inherit;
@@ -1902,4 +1902,13 @@ textarea{
 }
 .mode {
     right: 30px !important;
+}
+
+.footer > .terms > a {
+    font-size: 18px;
+    color: white;
+}
+
+#wrapper.white .footer > .terms > a {
+    color: #4d4d4d;
 }

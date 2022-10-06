@@ -165,9 +165,11 @@
                         </ul><!-- Social Media -->
                     </div>
                 </div>
-
+                <div class="text-center terms">
+                    <a href="{{ route('privacy') }}" target="_blank" class="mx-3">Privacy Policy</a>
+                    <a href="{{ route('terms') }}" target="_blank" class="mx-3">Terms of Services</a>
+                </div>
             </div> <!-- Footer -->
-
             <!-- Page Links -->
             {{-- <a href="#about" class="page-link"><img src="/vendor/images/about-inverse.png" alt=""></a>
 			<a href="#reach" class="page-link right"><img src="/vendor/images/reach-inverse.png" alt=""></a> --}}

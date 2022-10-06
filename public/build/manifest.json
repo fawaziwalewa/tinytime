@@ -3,13 +3,13 @@
     "file": "assets/play.caeaf4b4.png",
     "src": "resources/images/play.png"
   },
-  "resources/images/seo_banner.png": {
-    "file": "assets/seo_banner.c1ad45f5.png",
-    "src": "resources/images/seo_banner.png"
-  },
   "resources/images/stopwatch.png": {
     "file": "assets/stopwatch.dcaad8ac.png",
     "src": "resources/images/stopwatch.png"
+  },
+  "resources/images/seo_banner.png": {
+    "file": "assets/seo_banner.c1ad45f5.png",
+    "src": "resources/images/seo_banner.png"
   },
   "resources/vendor/video/nature.mp4": {
     "file": "assets/nature.2788ee97.mp4",
@@ -53,7 +53,7 @@
     "isEntry": true
   },
   "resources/vendor/css/main.css": {
-    "file": "assets/main.c023603e.css",
+    "file": "assets/main.3e307c25.css",
     "src": "resources/vendor/css/main.css",
     "isEntry": true
   },

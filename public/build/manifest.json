@@ -3,13 +3,13 @@
     "file": "assets/play.caeaf4b4.png",
     "src": "resources/images/play.png"
   },
-  "resources/images/stopwatch.png": {
-    "file": "assets/stopwatch.dcaad8ac.png",
-    "src": "resources/images/stopwatch.png"
-  },
   "resources/images/seo_banner.png": {
     "file": "assets/seo_banner.c1ad45f5.png",
     "src": "resources/images/seo_banner.png"
+  },
+  "resources/images/stopwatch.png": {
+    "file": "assets/stopwatch.dcaad8ac.png",
+    "src": "resources/images/stopwatch.png"
   },
   "resources/vendor/video/nature.mp4": {
     "file": "assets/nature.2788ee97.mp4",

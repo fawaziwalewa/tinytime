@@ -149,8 +149,20 @@ Route::get('/auth/twitter/redirect', function () {
 })->name('twitter.login');
  
 Route::get('/auth/twitter/callback', function () {
-    $user = Socialite::driver('twitter')->user();
-    // $user->token
+    $twitterUser = Socialite::driver('twitter')->user();
+
+    $user = User::updateOrCreate([
+        'email' => $twitterUser->email,
+    ], [
+        'name' => $twitterUser->name,
+        'email' => $twitterUser->email,
+        'password' =>  Str::random(40),
+        'email_verified_at' => now(),
+    ]);
+ 
+    Auth::login($user);
+ 
+    return redirect('/home');
 });
 
 // Twitch Login

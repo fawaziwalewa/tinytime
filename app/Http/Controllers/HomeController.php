@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\LoginSecurity;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $google2fa_enable = LoginSecurity::where('user_id', auth()->user()->id)->first()->google2fa_enable;
+        return view('home', compact('google2fa_enable'));
     }
 }

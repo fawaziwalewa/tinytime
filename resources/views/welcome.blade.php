@@ -9,13 +9,13 @@
     <meta name="keywords"
         content="tinytime, time, tiny time, counter, timer, tinytime counter, tinytime timer, tiny time timer, tiny timer counter, time to get organized and be productive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/images/stopwatch.png">
+    <link rel="icon" href="{{ Vite::asset('resources/images/stopwatch.png') }}">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <!-- Custom Stylesheet -->
-    {{-- <link rel="stylesheet" href="../vendor/css/main.css"> --}}
     @vite(['resources/js/app.js', 'resources/vendor/css/main.css', 'resources/vendor/css/jquery.classycountdown.min.css'])
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     {{-- Facebook --}}
     <meta property="og:url" content="{{ config('app.url') }}" />
     <meta property="og:type" content="website" />
@@ -376,9 +376,6 @@
     <script src="/vendor/js/jquery.knob.js"></script>
     <script src="/vendor/js/jquery.throttle.js"></script>
     <script src="../vendor/js/main.js"></script>
-    {{-- @vite(['resources/vendor/js/main.js']) --}}
-    {{-- 'resources/vendor/js/jquery.throttle.js',
-     --}}
 </body>
 
 </html>

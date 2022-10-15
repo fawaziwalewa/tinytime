@@ -50,4 +50,6 @@ return [
         'client_secret' => env('TWITCH_CLIENT_SECRET'),
         'redirect' => env('APP_URL').'/auth/twitch/callback',
     ],
+//     TWITTER_CLIENT_ID="AreH9cpAH3v70NkUC8wMArknu"
+// TWITTER_CLIENT_SECRET="d4wqPYqokTP57ktyKbSWjdeTSQQwhdyE4rnmA9KqCUyGAlZ4CZ"
 ];

@@ -1,65 +1,86 @@
-$(document).ready(function() {
+$(document).ready(function () {
     "use strict";
 
     function footerFixed() {
-        var topRow = parseInt($('#wrapper').css('padding-top'), 10) + $('.logo-row').outerHeight();
-        var bottomRow = parseInt($('#wrapper').css('padding-bottom'), 10) + $('#wrapper .footer').outerHeight() + parseInt($('#wrapper .footer').css('margin-top'), 10) + parseInt($('#wrapper .footer').css('margin-bottom'), 10);
+        var topRow =
+            parseInt($("#wrapper").css("padding-top"), 10) +
+            $(".logo-row").outerHeight();
+        var bottomRow =
+            parseInt($("#wrapper").css("padding-bottom"), 10) +
+            $("#wrapper .footer").outerHeight() +
+            parseInt($("#wrapper .footer").css("margin-top"), 10) +
+            parseInt($("#wrapper .footer").css("margin-bottom"), 10);
 
         var topBottomHeight = topRow + bottomRow;
 
-        var middleAreaHeight = window.innerHeight - topBottomHeight
+        var middleAreaHeight = window.innerHeight - topBottomHeight;
 
-        var middleHeight = $('.middle-area').outerHeight();
+        var middleHeight = $(".middle-area").outerHeight();
 
         if (middleHeight > middleAreaHeight) {
-            $('#wrapper .footer').removeClass('fixed');
-            $('.middle-area').removeClass('setMiddle');
-
+            $("#wrapper .footer").removeClass("fixed");
+            $(".middle-area").removeClass("setMiddle");
         } else {
-            $('#wrapper .footer').addClass('fixed');
-            $('.middle-area').addClass('setMiddle');
-
+            $("#wrapper .footer").addClass("fixed");
+            $(".middle-area").addClass("setMiddle");
         }
     }
-    footerFixed()
+    footerFixed();
 
-    $(window).resize(function(e) {
+    $(window).resize(function (e) {
         footerFixed();
-    })
+    });
 
-    $(document).on('submit', '#news', function(e) {
+    $(document).on("submit", "#news", function (e) {
         e.preventDefault();
-        $('#wrapper .subscribe form .input-group #submit i').removeClass('fi flaticon-check');
-        $('#wrapper .subscribe form .input-group #submit i').addClass('fa fa-spinner fa-spin');
+        $("#wrapper .subscribe form .input-group #submit i").removeClass(
+            "fi flaticon-check"
+        );
+        $("#wrapper .subscribe form .input-group #submit i").addClass(
+            "fa fa-spinner fa-spin"
+        );
         $.ajax({
-            url: '/subscribers',
-            type: 'post',
+            url: "/subscribers",
+            type: "post",
             data: $(this).serialize(),
-            success: function(data) {
-                $('#wrapper .subscribe form .input-group #submit i').addClass('fi flaticon-check');
-                $('#wrapper .subscribe form .input-group #submit i').removeClass('fa fa-spinner fa-spin');
-                $('.subscribe .success_msg').html("<p class='alert alert-success'><strong>Your Request was successfully sent.</strong> Thank you!</p>");
+            success: function (data) {
+                $("#wrapper .subscribe form .input-group #submit i").addClass(
+                    "fi flaticon-check"
+                );
+                $(
+                    "#wrapper .subscribe form .input-group #submit i"
+                ).removeClass("fa fa-spinner fa-spin");
+                $(".subscribe .success_msg").html(
+                    "<p class='alert alert-success'><strong>Your Request was successfully sent.</strong> Thank you!</p>"
+                );
             },
-            error: function(xhr, err) {
+            error: function (xhr, err) {
                 var err = eval("(" + xhr.responseText + ")");
-                $('#wrapper .subscribe form .input-group #submit i').addClass('fi flaticon-check');
-                $('#wrapper .subscribe form .input-group #submit i').removeClass('fa fa-spinner fa-spin');
-                $('.subscribe .success_msg').html("<p class='alert alert-danger'>Oops!! " + err.message + "</p>");
-            }
+                $("#wrapper .subscribe form .input-group #submit i").addClass(
+                    "fi flaticon-check"
+                );
+                $(
+                    "#wrapper .subscribe form .input-group #submit i"
+                ).removeClass("fa fa-spinner fa-spin");
+                $(".subscribe .success_msg").html(
+                    "<p class='alert alert-danger'>Oops!! " +
+                        err.message +
+                        "</p>"
+                );
+            },
         });
         return false;
     });
 });
 
-(function($) {
-
+(function ($) {
     "use strict";
 
     /* Demo Slideshow */
 
     $("#slideshow > div:gt(0)").hide();
     var wait = false;
-    setInterval(function() {
+    setInterval(function () {
         if (wait) {
             wait = false;
             return false;
@@ -74,49 +95,34 @@ $(document).ready(function() {
         } else {
             active.removeClass("active").next().addClass("active").fadeIn();
         }
-        $('.tab-nav').children().removeClass("active");
-        $('a[href="#' + id + '"]').parent("li").addClass("active");
+        $(".tab-nav").children().removeClass("active");
+        $('a[href="#' + id + '"]')
+            .parent("li")
+            .addClass("active");
     }, 5000);
 
-    $(document).on('click', '.tab-nav a', function(e) {
+    $(document).on("click", ".tab-nav a", function (e) {
         var $_this = $(this);
         var id = $_this.attr("href").split("#");
-        $('.tab-pane').fadeOut();
-        $("#" + id[1]).addClass("active").fadeIn();
-        $_this.addClass('active');
+        $(".tab-pane").fadeOut();
+        $("#" + id[1])
+            .addClass("active")
+            .fadeIn();
+        $_this.addClass("active");
         wait = true;
     });
 
-    // const today = new Date()
-    // var month = today.toLocaleString("en-US", { month: "long" });
-    // var day = today.getDate();
-    // var year = today.getFullYear();
-    // today.setMinutes(today.getMinutes() + 5);
-    // // today.setSeconds(00);
-    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-
-    // // var end = $('.countdown').data('end');
-    // var end = month + " " + day + ", " + year + " " + time;
-
-    // var date = new Date( end.replace(/-/g, "/") );
-    // var sec = (date.getTime() - $.now()) / 1000;
-
-    /* Countdown Activation */
-    // const today = new Date()
-    // today.setSeconds(0, 0);
-    // today.setMinutes(today.getMinutes() + 5);
-    // console.log(today);
-    $('.countdown').ClassyCountdown({
+    $(".countdown").ClassyCountdown({
         theme: "flat-colors",
-        end: "" /*$.now() + 300  + sec */ ,
+        end: "" /*$.now() + 300  + sec */,
         labelsOptions: {
             lang: {
-                days: 'DAYS',
-                hours: 'hours',
-                minutes: 'mins',
-                seconds: 'secs'
+                days: "DAYS",
+                hours: "hours",
+                minutes: "mins",
+                seconds: "secs",
             },
-            style: 'font-size:10px; text-transform:uppercase; font-family: Roboto; font-weight: 400;'
+            style: "font-size:10px; text-transform:uppercase; font-family: Roboto; font-weight: 400;",
         },
         style: {
             days: {
@@ -125,9 +131,10 @@ $(document).ready(function() {
                     bgColor: "rgba(22, 34, 0, 0.8)",
                     fgColor: "#a4ff00",
                     fgLast: "#bafc00",
-                    lineCap: 'round'
+                    lineCap: "round",
                 },
-                textCSS: 'font-family:\'Roboto\';font-weight:400;color:#fff;font-size: 60px;'
+                textCSS:
+                    "font-family:'Roboto';font-weight:400;color:#fff;font-size: 60px;",
             },
             hours: {
                 gauge: {
@@ -135,9 +142,10 @@ $(document).ready(function() {
                     bgColor: "rgba(12, 40, 40, .8)",
                     fgColor: "#65f9ed",
                     fgLast: "#24cad9",
-                    lineCap: 'round'
+                    lineCap: "round",
                 },
-                textCSS: 'font-family:\'Roboto\';font-weight:400;color:#fff;font-size: 60px;'
+                textCSS:
+                    "font-family:'Roboto';font-weight:400;color:#fff;font-size: 60px;",
             },
             minutes: {
                 gauge: {
@@ -145,9 +153,10 @@ $(document).ready(function() {
                     bgColor: "rgba(52, 9, 20, .8)",
                     fgColor: "#ff1415",
                     fgLast: "#fd08a8",
-                    lineCap: 'round'
+                    lineCap: "round",
                 },
-                textCSS: 'font-family:\'Roboto\';font-weight:400;color:#fff;font-size: 60px;'
+                textCSS:
+                    "font-family:'Roboto';font-weight:400;color:#fff;font-size: 60px;",
             },
             seconds: {
                 gauge: {
@@ -155,57 +164,67 @@ $(document).ready(function() {
                     bgColor: "rgba(39, 28, 1, .8)",
                     fgColor: "#ffbf00",
                     fgLast: "#ff6e00",
-                    lineCap: 'round'
+                    lineCap: "round",
                 },
-                textCSS: 'font-family:\'Roboto\';font-weight:400;color:#fff;font-size: 60px;'
-            }
-        }
+                textCSS:
+                    "font-family:'Roboto';font-weight:400;color:#fff;font-size: 60px;",
+            },
+        },
     });
 
     /* Open Modal */
-    $(document).on('click', '.page-link', function(e) {
+    $(document).on("click", ".page-link", function (e) {
         e.preventDefault();
-        var target = $(this).attr('href');
+        var target = $(this).attr("href");
 
-        $('body').addClass('hidden')
+        $("body").addClass("hidden");
 
-        $(target).removeClass('fadeOutUp').addClass('fadeInDown').css('visibility', 'visible');
-        $('#home').addClass('blur');
+        $(target)
+            .removeClass("fadeOutUp")
+            .addClass("fadeInDown")
+            .css("visibility", "visible");
+        $("#home").addClass("blur");
     });
 
     /* Closing Modal */
-    $(document).on('click', '.closeModal', function(e) {
+    $(document).on("click", ".closeModal", function (e) {
         e.preventDefault();
-        $('#home').removeClass('blur');
-        $(this).parents('.otherpage').removeClass('fadeInDown').addClass('fadeOutUp').css('visibility', 'hidden');
-        $('body').removeClass('hidden')
+        $("#home").removeClass("blur");
+        $(this)
+            .parents(".otherpage")
+            .removeClass("fadeInDown")
+            .addClass("fadeOutUp")
+            .css("visibility", "hidden");
+        $("body").removeClass("hidden");
     });
 
-    $(document).on('keyup', '#input', function(e) {
-        var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+    $(document).on("keyup", "#input", function (e) {
+        var pattern = new RegExp(
+            /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i
+        );
         if (!pattern.test($(this).val())) {
-            $('#submit').removeClass('success').addClass('error');
+            $("#submit").removeClass("success").addClass("error");
         } else {
-            $('#submit').removeClass('error').addClass('success');
+            $("#submit").removeClass("error").addClass("success");
         }
     });
 
-    $('.sun').on('click', function() {
-        $(this).addClass('d-none');
-        $('.moon').removeClass('d-none');
-        $('#wrapper').addClass('white');
-        $('#wrapper').removeClass('black');
+    $(".sun").on("click", function () {
+        $(this).addClass("d-none");
+        $(".moon").removeClass("d-none");
+        $("#wrapper").addClass("white");
+        $("#wrapper").removeClass("black");
     });
-    $('.moon').on('click', function() {
-        $(this).addClass('d-none');
-        $('.eclipse.video').removeClass('d-none');
-        $('#wrapper').addClass('black');
-        $('#wrapper').removeClass('white');
+    $(".moon").on("click", function () {
+        $(this).addClass("d-none");
+        $(".eclipse.video").removeClass("d-none");
+        $("#wrapper").addClass("black");
+        $("#wrapper").removeClass("white");
     });
-    $('.eclipse.video').on('click', function() {
-        $(this).addClass('d-none');
-        $('.sun').removeClass('d-none');
-        $('#wrapper').addClass('video');
-        $('#wrapper').removeClass('black');
+    $(".eclipse.video").on("click", function () {
+        $(this).addClass("d-none");
+        $(".sun").removeClass("d-none");
+        $("#wrapper").addClass("video");
+        $("#wrapper").removeClass("black");
     });
 })(jQuery);

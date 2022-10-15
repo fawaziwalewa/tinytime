@@ -2,44 +2,25 @@
 <html class="no-js" lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <title>{{ config('app.name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/images/stopwatch.png">
+    <link rel="icon" href="{{ Vite::asset('resources/images/stopwatch.png') }}">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-    <!-- Countdown Stylesheet -->
-    <link rel="stylesheet" href="/vendor/css/jquery.classycountdown.min.css">
-
-    <!-- Animate Stylesheet
-            <link rel="stylesheet" href="/vendor/css/animate.css">-->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="/vendor/css/main.css">
-    @vite(['resources/js/app.js'])
-
-    <script src="/vendor/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    {{-- Moment.js --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    @vite(['resources/js/app.js', 'resources/vendor/css/main.css', 'resources/vendor/css/jquery.classycountdown.min.css'])
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script
+      src="https://cdn.rawgit.com/mckamey/countdownjs/master/countdown.min.js"
+      type="text/javascript"
+    ></script>
 </head>
 
 <body>
-
     <section id="wrapper" class="black">
-
         <div class="container-fluid animated" id="home">
             <div class="middle-area">
                 <div class="countdown" data-end="{{ $date }}"></div>
-
-                <!-- Countdown Timer December 16, 2022 11:13:00-->
             </div>
         </div>
         <script src="/vendor/js/jquery.custom_classycountdown.min.js"></script>
@@ -49,15 +30,15 @@
         <script>
             $(document).ready(function() {
                 var end = $('.countdown').data('end');
-                var localTime = moment.utc(end + '+00:00').local().format('YYYY-MM-DD HH:mm:ss');
-                var date = new Date(localTime.replace(/-/g, "/"));
-                var sec = (date.getTime() - $.now()) / 1000;
-                console.log(sec)
-                // console.log([end, date, sec])
+                // console.log(end);
+                // var localTime = moment.utc(new Date(end + '+00:00')).local().format('YYYY-MM-DD HH:mm:ss');
+                var date = new Date(end.replace(/-/g, "/"));
+                var sec = (date.getTime() - new Date().getTime()) / 1000;
+                // console.log($.now() + sec);
                 /* Countdown Activation */
                 var timer = $('.countdown').ClassyCountdown({
                     theme: "flat-colors",
-                    end: $.now() + sec,
+                    end: end,//new Date().getTime() + sec,
                     labelsOptions: {
                         lang: {
                             days: 'DAYS',
@@ -111,10 +92,10 @@
                     }
                 });
                 @if ($timer_type == 0)
-                    timer.startTimer()
+                    // timer.startTimer()
                 @elseif ($timer_type == 1)
-                    var local = moment.utc("{{ $created_at }}").local().format('YYYY-MM-DD HH:mm:ss');
-                    timer.startCounter(local)
+                    // var local = moment.utc("{{ $created_at }}").local().format('YYYY-MM-DD HH:mm:ss');
+                    // timer.startCounter(local)
                 @endif
             });
         </script>

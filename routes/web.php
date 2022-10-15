@@ -43,11 +43,11 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['2fa']);
 
 Route::get('/custom-timer/{link_id}', function(Request $request){
     $link_id = GenerateLink::where('link_id', $request->link_id)->first();
@@ -197,4 +197,17 @@ Route::get('/auth/twitch/callback', function () {
     Auth::login($user);
  
     return redirect('/home');
+});
+
+/* Google 2FA */
+Route::group(['prefix'=>'2fa'], function(){
+    Route::get('/',[App\Http\Controllers\LoginSecurityController::class, 'show2faForm']);
+    Route::post('/generateSecret',[App\Http\Controllers\LoginSecurityController::class, 'generate2faSecret'])->name('generate2faSecret');
+    Route::post('/enable2fa',[App\Http\Controllers\LoginSecurityController::class, 'enable2fa'])->name('enable2fa');
+    Route::post('/disable2fa',[App\Http\Controllers\LoginSecurityController::class, 'disable2fa'])->name('disable2fa');
+
+    // 2fa middleware
+    Route::post('/2faVerify', function () {
+        return redirect('/home');
+    })->name('2faVerify')->middleware('2fa');
 });

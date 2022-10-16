@@ -24,7 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $google2fa_enable = LoginSecurity::where('user_id', auth()->user()->id)->first()->google2fa_enable;
-        return view('home', compact('google2fa_enable'));
+        $google2fa_enable = LoginSecurity::where('user_id', auth()->user()->id)->first();
+        if (!empty($google2fa_enable)) {
+            $google2fa_enable->google2fa_enable;
+            return view('home', compact('google2fa_enable'));
+        }else{
+            $google2fa_enable = 0;
+            return view('home', compact('google2fa_enable'));
+        }
     }
 }

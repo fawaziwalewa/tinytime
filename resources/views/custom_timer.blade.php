@@ -92,10 +92,11 @@
                     }
                 });
                 @if ($timer_type == 0)
-                    // timer.startTimer()
+                    timer.startTimer()
                 @elseif ($timer_type == 1)
                     // var local = moment.utc("{{ $created_at }}").local().format('YYYY-MM-DD HH:mm:ss');
                     // timer.startCounter(local)
+                    timer.startCounter("{{ $created_at }}")
                 @endif
             });
         </script>

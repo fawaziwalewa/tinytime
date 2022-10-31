@@ -14,6 +14,8 @@ class GenerateLink extends Model
         'minute',
         'second',
         'timer_type',
-        'link_id'
+        'link_id',
+        'name',
+        'description',
     ];
 }

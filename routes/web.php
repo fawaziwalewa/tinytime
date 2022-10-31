@@ -49,6 +49,31 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['2fa']);
 
+Route::post('/custom-timer', function(Request $request){
+    $request->validate([
+        'name' => 'required|min:4',
+        'date' => 'required|date',
+        'hour' => 'required|integer|min:0|max:60',
+        'minute' => 'required|integer|min:0|max:60',
+        'second' => 'required|integer|min:0|max:60',
+        'timertype' => 'required|in:0,1',
+    ]);
+
+    $generate_link = new GenerateLink;
+    $generate_link->date = $request->date;
+    $generate_link->hour = $request->hour;
+    $generate_link->minute = $request->minute;
+    $generate_link->second = $request->second;
+    $generate_link->timer_type = $request->timertype;
+    $generate_link->link_id = Str::random(15);
+    $generate_link->name = $request->name;
+    $generate_link->description = $request->description;
+    $generate_link->save();
+    
+    return response()->json(['link' => $generate_link->link_id ]);
+    
+})->name('customUrl');
+
 Route::get('/custom-timer/{link_id}', function(Request $request){
     $link_id = GenerateLink::where('link_id', $request->link_id)->first();
     if (empty($link_id)) {
@@ -60,34 +85,12 @@ Route::get('/custom-timer/{link_id}', function(Request $request){
     $second = $link_id->second;
     $timer_type = $link_id->timer_type;
     $created_at = $link_id->created_at;
+    $name = $link_id->name;
+    $description = $link_id->description;
     // August 27, 2022 7:45:58
     $date = "$endDate $hour:$minute:$second";
-    return view('custom_timer', compact('date', 'timer_type', 'created_at'));
-    
-})->name('customUrl');
-
-Route::post('/custom-timer', function(Request $request){
-
-    $request->validate([
-        'date' => 'required|date',
-        'hour' => 'required|integer|min:0|max:60',
-        'minute' => 'required|integer|min:0|max:60',
-        'second' => 'required|integer|min:0|max:60',
-        'timertype' => 'required|integer|min:0|max:1',
-    ]);
-
-    $generate_link = new GenerateLink;
-    $generate_link->date = $request->date;
-    $generate_link->hour = $request->hour;
-    $generate_link->minute = $request->minute;
-    $generate_link->second = $request->second;
-    $generate_link->timer_type = $request->timertype;
-    $generate_link->link_id = Str::random(15);
-    $generate_link->save();
-    
-    return response()->json(['link' => $generate_link->link_id ]);
-    
-})->name('customUrl');
+    return view('module.index', compact('date', 'timer_type', 'created_at', 'name', 'description'));
+});
 
 
 // Route::get('/google', [App\Http\Controllers\GoogleSheetController::class, 'googlesheet'])->name('googlesheet');
@@ -210,4 +213,25 @@ Route::group(['prefix'=>'2fa'], function(){
     Route::post('/2faVerify', function () {
         return redirect('/home');
     })->name('2faVerify')->middleware('2fa');
+});
+
+// Time Module
+
+// Route::get('/module/{id}', function(){
+//     return view('module.index');
+// });
+Route::get('/module/{link_id}', function(Request $request){
+    $link_id = GenerateLink::where('link_id', $request->link_id)->first();
+    if (empty($link_id)) {
+        return redirect('/')->with('invalid_link', 'The link is invalid.');
+    }
+    $endDate = Carbon::parse($link_id->date)->isoFormat('MMMM D, YYYY');
+    $hour = $link_id->hour;
+    $minute = $link_id->minute;
+    $second = $link_id->second;
+    $timer_type = $link_id->timer_type;
+    $created_at = $link_id->created_at;
+    // August 27, 2022 7:45:58
+    $date = "$endDate $hour:$minute:$second";
+    return view('module.index', compact('date', 'timer_type', 'created_at'));
 });

@@ -1,42 +1,11 @@
 $(document).ready(function () {
     "use strict";
-
-    function footerFixed() {
-        var topRow =
-            parseInt($("#wrapper").css("padding-top"), 10) +
-            $(".logo-row").outerHeight();
-        var bottomRow =
-            parseInt($("#wrapper").css("padding-bottom"), 10) +
-            $("#wrapper .footer").outerHeight() +
-            parseInt($("#wrapper .footer").css("margin-top"), 10) +
-            parseInt($("#wrapper .footer").css("margin-bottom"), 10);
-
-        var topBottomHeight = topRow + bottomRow;
-
-        var middleAreaHeight = window.innerHeight - topBottomHeight;
-
-        var middleHeight = $(".middle-area").outerHeight();
-
-        if (middleHeight > middleAreaHeight) {
-            $("#wrapper .footer").removeClass("fixed");
-            $(".middle-area").removeClass("setMiddle");
-        } else {
-            $("#wrapper .footer").addClass("fixed");
-            $(".middle-area").addClass("setMiddle");
-        }
-    }
-    footerFixed();
-
-    $(window).resize(function (e) {
-        footerFixed();
-    });
-
     $(document).on("submit", "#news", function (e) {
         e.preventDefault();
-        $("#wrapper .subscribe form .input-group #submit i").removeClass(
+        $("#submit i").removeClass(
             "fi flaticon-check"
         );
-        $("#wrapper .subscribe form .input-group #submit i").addClass(
+        $("#submit i").addClass(
             "fa fa-spinner fa-spin"
         );
         $.ajax({
@@ -44,32 +13,35 @@ $(document).ready(function () {
             type: "post",
             data: $(this).serialize(),
             success: function (data) {
-                $("#wrapper .subscribe form .input-group #submit i").addClass(
+                $("#submit i").addClass(
                     "fi flaticon-check"
                 );
                 $(
-                    "#wrapper .subscribe form .input-group #submit i"
+                    "#submit i"
                 ).removeClass("fa fa-spinner fa-spin");
-                $(".subscribe .success_msg").html(
-                    "<p class='alert alert-success'><strong>Your Request was successfully sent.</strong> Thank you!</p>"
+                $(".success_msg").html(
+                    "<p class='text-green-700 cursor-pointer removeElem'><strong>Your Request was successfully sent.</strong> Thank you!</p>"
                 );
             },
             error: function (xhr, err) {
                 var err = eval("(" + xhr.responseText + ")");
-                $("#wrapper .subscribe form .input-group #submit i").addClass(
+                $("#submit i").addClass(
                     "fi flaticon-check"
                 );
                 $(
-                    "#wrapper .subscribe form .input-group #submit i"
+                    "#submit i"
                 ).removeClass("fa fa-spinner fa-spin");
-                $(".subscribe .success_msg").html(
-                    "<p class='alert alert-danger'>Oops!! " +
+                $(".success_msg").html(
+                    "<p class='text-red-700 cursor-pointer removeElem'>Oops!! " +
                         err.message +
                         "</p>"
                 );
             },
         });
         return false;
+    });
+    $(document).on("click", ".removeElem", function (e) {
+        $(this).remove();
     });
 });
 
@@ -210,21 +182,55 @@ $(document).ready(function () {
     });
 
     $(".sun").on("click", function () {
-        $(this).addClass("d-none");
-        $(".moon").removeClass("d-none");
-        $("#wrapper").addClass("white");
-        $("#wrapper").removeClass("black");
+        $(this).addClass("hidden");
+        $(".moon").removeClass("hidden");
+        $("body").addClass("bg-white");
+        $("body").removeClass("bg-black");
+        $("#bgvid").addClass("hidden");
     });
     $(".moon").on("click", function () {
-        $(this).addClass("d-none");
-        $(".eclipse.video").removeClass("d-none");
-        $("#wrapper").addClass("black");
-        $("#wrapper").removeClass("white");
+        $(this).addClass("hidden");
+        $(".eclipse.video").removeClass("hidden");
+        $("body").removeClass("bg-white");
+        $("body").addClass("bg-black");
     });
     $(".eclipse.video").on("click", function () {
-        $(this).addClass("d-none");
-        $(".sun").removeClass("d-none");
-        $("#wrapper").addClass("video");
-        $("#wrapper").removeClass("black");
+        $(this).addClass("hidden");
+        $(".sun").removeClass("hidden");
+        $("body").removeClass("bg-black");
+        $("body").addClass("bg-black bg-video");
+        $("#bgvid").removeClass("hidden");
+    });
+    // Modal Boxes
+    $("#custom").on("click", function () {
+        $(".customModal").removeClass("hidden");
+    });
+    $("#share").on("click", function () {
+        $(".shareModal").removeClass("hidden");
+    });
+    $("#sign").on("click", function () {
+        $(".signModal").removeClass("hidden");
+    });
+    $(".close-modal").on("click", function () {
+        $(".shareModal").addClass("hidden");
+        $(".customModal").addClass("hidden");
+        $(".signModal").addClass("hidden");
+    });
+    // Sign Form
+    $('.signInBtn').click(function (e) { 
+        e.preventDefault();
+        $(this).removeClass('bg-gray-50');
+        $('.signUpBtn').addClass('bg-gray-50');
+        $(this).addClass('bg-white');
+        $('.signup').addClass('hidden');
+        $('.signin').removeClass('hidden');
+    });
+    $('.signUpBtn').click(function (e) { 
+        e.preventDefault();
+        $(this).removeClass('bg-gray-50');
+        $('.signInBtn').addClass('bg-gray-50');
+        $(this).addClass('bg-white');
+        $('.signin').addClass('hidden');
+        $('.signup').removeClass('hidden');
     });
 })(jQuery);

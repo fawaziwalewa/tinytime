@@ -9,6 +9,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     @vite(['resources/js/app.js', 'resources/vendor/css/main.css', 'resources/vendor/css/jquery.classycountdown.min.css'])
+    @vite('resources/css/app.css')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script
       src="https://cdn.rawgit.com/mckamey/countdownjs/master/countdown.min.js"
@@ -16,13 +17,19 @@
     ></script>
 </head>
 
-<body>
-    <section id="wrapper" class="black">
-        <div class="container-fluid animated" id="home">
+<body class="">
+    <section id="wrapper" class="black min-h-screen flex flex-col justify-center items-center relative">
+        <div class="container-fluid animated my-4" id="home">
             <div class="middle-area">
+                <div class="row">
+                    <h1 class="title">{{ config('app.name') }}</h1>
+                    <p class="subtitle">Time to get organized and be productive.</p>
+                </div>
                 <div class="countdown" data-end="{{ $date }}"></div>
             </div>
         </div>
+        <p class="text-white absolute bottom-3 right-6">Powered by {{config('app.name')}}</p>
+    </section>
         <script src="/vendor/js/jquery.custom_classycountdown.min.js"></script>
         <script src="/vendor/js/jquery.knob.js"></script>
         <script src="/vendor/js/jquery.throttle.js"></script>
@@ -30,11 +37,8 @@
         <script>
             $(document).ready(function() {
                 var end = $('.countdown').data('end');
-                // console.log(end);
-                // var localTime = moment.utc(new Date(end + '+00:00')).local().format('YYYY-MM-DD HH:mm:ss');
                 var date = new Date(end.replace(/-/g, "/"));
                 var sec = (date.getTime() - new Date().getTime()) / 1000;
-                // console.log($.now() + sec);
                 /* Countdown Activation */
                 var timer = $('.countdown').ClassyCountdown({
                     theme: "flat-colors",
@@ -94,8 +98,6 @@
                 @if ($timer_type == 0)
                     timer.startTimer()
                 @elseif ($timer_type == 1)
-                    // var local = moment.utc("{{ $created_at }}").local().format('YYYY-MM-DD HH:mm:ss');
-                    // timer.startCounter(local)
                     timer.startCounter("{{ $created_at }}")
                 @endif
             });

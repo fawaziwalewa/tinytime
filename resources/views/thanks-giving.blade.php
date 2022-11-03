@@ -38,7 +38,7 @@
         }
     </style>
 </head>
-<body class="flex flex-col items-center min-h-screen relative mb-0 overflow-x-hidden">
+<body class="flex flex-col items-center bg-thanks-giving-secondary min-h-screen relative mb-0 overflow-x-hidden">
     <header class="w-full text-white text-center py-5 relative bg-cover bg-no-repeat md:bg-repeat md:bg-contain">
         <div class="max-w-3xl mx-auto">
             <h1 class="text-5xl text-thanks-giving-secondary font-sacramento">Tiny Time</h1>
@@ -126,8 +126,8 @@
                                 <span class="tooltiptext">Share</span>
                             </div>
                             {{-- Keep design balance --}}
-                            <div class="tooltip">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 md:block md:invisible hidden cursor-pointer" viewBox="0 0 46 46" fill="none">
+                            <div class="tooltip md:block md:invisible hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 cursor-pointer" viewBox="0 0 46 46" fill="none">
                                     <path d="M45.3559 15.8226L28.1067 0.489953C27.8312 0.24242 27.4897 0.0801936 27.1238 0.0229698C26.7579 -0.034254 26.3832 0.0159866 26.0453 0.167592C25.7074 0.319197 25.4208 0.565645 25.2202 0.877014C25.0197 1.18838 24.9138 1.55128 24.9156 1.92164V8.06812C19.1581 9.61288 0 16.8039 0 44.0864C0.000701725 44.5314 0.156194 44.9622 0.439809 45.3051C0.723424 45.6479 1.11749 45.8814 1.55442 45.9655C1.99135 46.0495 2.44392 45.979 2.83452 45.7659C3.22511 45.5528 3.52939 45.2104 3.69517 44.7975C9.37783 30.5899 20.4557 27.6249 24.9136 27.0059V32.5869C24.9133 32.957 25.02 33.3192 25.2209 33.6298C25.4219 33.9405 25.7085 34.1864 26.0461 34.3378C26.3837 34.4892 26.7579 34.5396 27.1236 34.483C27.4892 34.4263 27.8307 34.2651 28.1067 34.0186L45.3559 18.686C45.5579 18.5062 45.7196 18.2856 45.8303 18.0389C45.9411 17.7921 45.9983 17.5247 45.9983 17.2543C45.9983 16.9838 45.9411 16.7164 45.8303 16.4697C45.7196 16.2229 45.5579 16.0024 45.3559 15.8226Z" fill="#6C370B"/>
                                 </svg>
                                 <span class="tooltiptext">Keep Balance</span>

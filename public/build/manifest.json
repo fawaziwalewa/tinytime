@@ -43,27 +43,27 @@
     "file": "assets/fontawesome-webfont.8b4822b9.svg",
     "src": "resources/vendor/fonts/fontawesome-webfont.svg"
   },
-  "resources/vendor/video/output.mp4": {
-    "file": "assets/output.b2a1b755.mp4",
-    "src": "resources/vendor/video/output.mp4"
-  },
   "resources/vendor/video/halloween tinytime.mp4": {
     "file": "assets/halloween tinytime.e5d3dfa8.mp4",
     "src": "resources/vendor/video/halloween tinytime.mp4"
+  },
+  "resources/vendor/video/output.mp4": {
+    "file": "assets/output.b2a1b755.mp4",
+    "src": "resources/vendor/video/output.mp4"
   },
   "resources/js/app.js": {
     "file": "assets/app.e5198d1b.js",
     "src": "resources/js/app.js",
     "isEntry": true
   },
-  "resources/vendor/css/main.css": {
-    "file": "assets/main.15317dda.css",
-    "src": "resources/vendor/css/main.css",
-    "isEntry": true
-  },
   "resources/vendor/css/jquery.classycountdown.min.css": {
     "file": "assets/jquery.classycountdown.min.750cb276.css",
     "src": "resources/vendor/css/jquery.classycountdown.min.css",
+    "isEntry": true
+  },
+  "resources/vendor/css/main.css": {
+    "file": "assets/main.15317dda.css",
+    "src": "resources/vendor/css/main.css",
     "isEntry": true
   },
   "resources/css/app.css": {

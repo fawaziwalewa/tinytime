@@ -1,25 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Open+Sans:wght@400;600&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Open+Sans:wght@400;600&family=Roboto&display=swap");
 
 .title {
-    font-family: 'Lato';
+    font-family: "Lato";
 }
 
-.countdown .ClassyCountdown-wrapper>div:before {
+.countdown .ClassyCountdown-wrapper > div:before {
     content: "";
     background-image: url(../images/arrow.png);
     width: 13px;
     height: 13px;
     position: absolute;
     top: 3px;
-    left: 49%
+    left: 49%;
 }
 
 @font-face {
-    font-family: 'FontAwesome';
+    font-family: "FontAwesome";
     src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
-    src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
+    src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0")
+            format("embedded-opentype"),
+        url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"),
+        url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"),
+        url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"),
+        url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular")
+            format("svg");
     font-weight: normal;
-    font-style: normal
+    font-style: normal;
 }
 
 .fa {
@@ -28,49 +34,49 @@
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @-webkit-keyframes fa-spin {
     0% {
         -webkit-transform: rotate(0deg);
-        transform: rotate(0deg)
+        transform: rotate(0deg);
     }
     100% {
         -webkit-transform: rotate(359deg);
-        transform: rotate(359deg)
+        transform: rotate(359deg);
     }
 }
 
 @keyframes fa-spin {
     0% {
         -webkit-transform: rotate(0deg);
-        transform: rotate(0deg)
+        transform: rotate(0deg);
     }
     100% {
         -webkit-transform: rotate(359deg);
-        transform: rotate(359deg)
+        transform: rotate(359deg);
     }
 }
 
 .fa-envelope-o:before {
-    content: "\f003"
+    content: "\f003";
 }
 
 .fa-twitter:before {
-    content: "\f099"
+    content: "\f099";
 }
 
 .fa-facebook:before {
-    content: "\f09a"
+    content: "\f09a";
 }
 
 .fa-pinterest:before {
-    content: "\f0d2"
+    content: "\f0d2";
 }
 
 .fa-dribbble:before {
-    content: "\f17d"
+    content: "\f17d";
 }
 
 .fa-linkedin:before {
@@ -111,15 +117,18 @@
 @font-face {
     font-family: "Flaticon";
     src: url("../fonts/Flaticon.eot");
-    src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg");
+    src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Flaticon.woff") format("woff"),
+        url("../fonts/Flaticon.ttf") format("truetype"),
+        url("../fonts/Flaticon.svg#Flaticon") format("svg");
     font-weight: normal;
-    font-style: normal
+    font-style: normal;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     @font-face {
         font-family: "Flaticon";
-        src: url("./Flaticon.svg#Flaticon") format("svg")
+        src: url("./Flaticon.svg#Flaticon") format("svg");
     }
 }
 
@@ -138,23 +147,23 @@
 }
 
 .flaticon-check:before {
-    content: "\f100"
+    content: "\f100";
 }
 
 .flaticon-circle-1:before {
-    content: "\f102"
+    content: "\f102";
 }
 
 .flaticon-note:before {
-    content: "\f104"
+    content: "\f104";
 }
 
 .flaticon-pin:before {
-    content: "\f105"
+    content: "\f105";
 }
 
 .flaticon-technology:before {
-    content: "\f107"
+    content: "\f107";
 }
 
 #submit.error i {
@@ -191,4 +200,40 @@ body.bg-white .ClassyCountdown-value {
 }
 body.bg-white .dtxt {
     color: rgb(58, 58, 58) !important;
+}
+
+/* ToolTip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

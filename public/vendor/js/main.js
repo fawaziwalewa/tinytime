@@ -1,6 +1,6 @@
 $(document).ready(function () {
     "use strict";
-    $(document).on("submit", "#news", function (e) {
+    $(document).on("click", "#send_news", function (e) {
         e.preventDefault();
         $("#submit i").removeClass(
             "fi flaticon-check"
@@ -11,7 +11,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/subscribers",
             type: "post",
-            data: $(this).serialize(),
+            data: $("#news").serialize(),
             success: function (data) {
                 $("#submit i").addClass(
                     "fi flaticon-check"
@@ -20,7 +20,7 @@ $(document).ready(function () {
                     "#submit i"
                 ).removeClass("fa fa-spinner fa-spin");
                 $(".success_msg").html(
-                    "<p class='text-green-700 cursor-pointer removeElem'><strong>Your Request was successfully sent.</strong> Thank you!</p>"
+                    "<p class='mt-2 text-green-500 font-bold cursor-pointer removeElem'><strong>Your Request was successfully sent.</strong> Thank you!</p>"
                 );
             },
             error: function (xhr, err) {
@@ -32,7 +32,7 @@ $(document).ready(function () {
                     "#submit i"
                 ).removeClass("fa fa-spinner fa-spin");
                 $(".success_msg").html(
-                    "<p class='text-red-700 cursor-pointer removeElem'>Oops!! " +
+                    "<p class='mt-2 text-red-500 font-bold cursor-pointer removeElem'>Oops!! " +
                         err.message +
                         "</p>"
                 );
@@ -171,13 +171,16 @@ $(document).ready(function () {
     });
 
     $(document).on("keyup", "#input", function (e) {
+        $('.success_msg').html("");
         var pattern = new RegExp(
             /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i
         );
         if (!pattern.test($(this).val())) {
-            $("#submit").removeClass("success").addClass("error");
+            // $("#submit").removeClass("success").addClass("error");
+            $("#error").removeClass("hidden").addClass("block");
         } else {
-            $("#submit").removeClass("error").addClass("success");
+            // $("#submit").removeClass("error").addClass("success");
+            $("#error").removeClass("block").addClass("hidden");
         }
     });
 

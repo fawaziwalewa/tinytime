@@ -6,7 +6,21 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'thanks-giving-primary': '#F9E2C3',
+        'thanks-giving-secondary' : '#6C370B',
+        'thanks-giving-trans' : 'rgba(255, 255, 255, 0.26)',
+        'thanks-giving-linear' : 'rgba(211, 172, 135, 0.21)',
+        'thanks-giving-border' : 'rgba(201, 123, 72, 0.23)',
+      },
+      fontFamily: {
+        'sacramento':  ['Sacramento', 'cursive'],
+      },
+      backgroundImage:{
+        'thanks-giving': 'resources/images/thanks-giving-bg.png'
+      }
+    },
   },
   plugins: [],
 }

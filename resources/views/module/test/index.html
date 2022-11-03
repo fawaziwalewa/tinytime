@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test case</title>
+  </head>
+  <body>
+    <p>
+      <b>Adding Value to your Marketing Course.</b> Marketers understand that
+      even the best products and services will go unsold if they cannot
+      communicate the value to the customer. Understanding this value-based
+      approach is critical for marketing students today, and is at the forefront
+      of this text, setting it apart. This approach is emphasized throughout the
+      text, and demonstrated through the use of the Adding Value boxes found in
+      each chapter.<br />
+      <br />
+      In their 3rd edition of <i>M: Marketing</i>, Grewal and Levy present a
+      concise, impactful, and easy to read approach to Principles of Marketing.
+      The text delivers value to both instructor and student through the
+      engaging style and online assignment and assessment options. With monthly
+      updates provided in a newsletter and the dynamic video program, the
+      instructor support provided will bring marketing to life in any class
+      setting.
+    </p>
+    <script>
+      x = "Something";
+      console.log(x);
+      var x;
+    </script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test timer</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.rawgit.com/mckamey/countdownjs/master/countdown.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.0.0.min.js"
+      type="text/javascript"
+    ></script>
+    <style>
+      .now {
+        color: red;
+      }
+      .then {
+        color: blue;
+      }
+      .duration {
+        font-weight: bold;
+      }
+      .difference {
+        font-weight: bold;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Just Seconds</h1>
+    <div>
+      The time is now: <span class="now"></span>, a timer will go off
+      <span class="duration"></span> at <span class="then"></span>
+    </div>
+    <div>The timer is set to go off <span class="difference"></span></div>
+    <div class="countdown"></div>
+    <div id="current"></div>
+    <div id="event"></div>
+    <div id="result"></div>
+
+    <script>
+      // const current = document.getElementById("current");
+      // const event = document.getElementById("event");
+      // const result = document.getElementById("result");
+      // // current.innerHTML = new Date();
+      // function convertTime(d) {
+      //   // console.log(d);
+      //   var days = Math.floor(d / (1000 * 60 * 60 * 24));
+      //   var hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      //   var minutes = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+      //   var seconds = Math.floor((d % (1000 * 60)) / 1000);
+      //   return {
+      //     days,
+      //     hours,
+      //     minutes,
+      //     seconds
+      //   }
+      // }
+
+      // function move() {
+      //   const currentStart = new Date();
+      //   const eventEnd = new Date("Sat Oct 15 2022 10:50:52");
+      //   current.innerHTML = currentStart;
+      //   event.innerHTML = "End: " + eventEnd;
+      //   const diff = eventEnd.getTime() - currentStart.getTime();
+      //   // console.log(result);
+      //   const val = convertTime(diff);
+      //   result.innerHTML = JSON.stringify(val);
+      //   document.title = `${val.minutes}m : ${val.seconds}s`;
+      //   // requestAnimationFrame(move)
+      //   setInterval(move, 1000);
+      // }
+      // move();
+      // var countDownDate = moment().add(10, "seconds");
+      // function m() {
+      //   diff = countDownDate.diff(moment());
+      //   if (diff <= 0) {
+      //     clearInterval(m);
+      //     // If the count down is finished, write some text
+      //     $(".countdown").text("EXPIRED");
+      //   } else {
+      //     $(".countdown").text(moment.utc(diff).format("HH:mm:ss"));
+      //     console.log(diff);
+      //   }
+      // }
+      // m()
+      // setInterval(m, 1000);
+    </script>
+
+    <script>
+      var now = moment(); // new Date().getTime();
+      // console.log(JSON.stringify(now));
+      var then = new Date("2022-10-14T11:40:45.571Z"); 
+      //moment().add(60, "seconds"); // new Date(now + 60 * 1000);
+
+      $(".now").text(moment(now).format("h:mm:ss a"));
+      $(".then").text(moment(then).format("h:mm:ss a"));
+      $(".duration").text(moment(now).to(then));
+      // (function timerLoop() {
+      //   $(".difference").text(moment().to(then));
+      //   $(".countdown").text(countdown(then).toString());
+      //   requestAnimationFrame(timerLoop);
+      //   document.title = countdown(then).toString();
+      // })();
+      function timerLoop(){
+        $(".difference").text(moment().to(then));
+        $(".countdown").text(countdown(then).toString());
+        // Create a balance
+        // requestAnimationFrame(timerLoop);
+        let countdown = countdown(then).toString();
+        document.title = countdown(then).toString();
+      }
+      timerLoop()
+      setInterval(timerLoop, 1000)
+    </script>
+  </body>
+</html> -->

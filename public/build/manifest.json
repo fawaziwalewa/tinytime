@@ -1,4 +1,8 @@
 {
+  "resources/images/seo_banner.png": {
+    "file": "assets/seo_banner.c1ad45f5.png",
+    "src": "resources/images/seo_banner.png"
+  },
   "resources/images/play.png": {
     "file": "assets/play.caeaf4b4.png",
     "src": "resources/images/play.png"
@@ -7,9 +11,9 @@
     "file": "assets/stopwatch.dcaad8ac.png",
     "src": "resources/images/stopwatch.png"
   },
-  "resources/images/seo_banner.png": {
-    "file": "assets/seo_banner.c1ad45f5.png",
-    "src": "resources/images/seo_banner.png"
+  "resources/images/thanks-giving-bg.png": {
+    "file": "assets/thanks-giving-bg.6d04bcbb.png",
+    "src": "resources/images/thanks-giving-bg.png"
   },
   "resources/vendor/video/nature.mp4": {
     "file": "assets/nature.2788ee97.mp4",
@@ -39,17 +43,22 @@
     "file": "assets/fontawesome-webfont.8b4822b9.svg",
     "src": "resources/vendor/fonts/fontawesome-webfont.svg"
   },
-  "resources/vendor/video/halloween tinytime.mp4": {
-    "file": "assets/halloween tinytime.e5d3dfa8.mp4",
-    "src": "resources/vendor/video/halloween tinytime.mp4"
-  },
   "resources/vendor/video/output.mp4": {
     "file": "assets/output.b2a1b755.mp4",
     "src": "resources/vendor/video/output.mp4"
   },
+  "resources/vendor/video/halloween tinytime.mp4": {
+    "file": "assets/halloween tinytime.e5d3dfa8.mp4",
+    "src": "resources/vendor/video/halloween tinytime.mp4"
+  },
   "resources/js/app.js": {
     "file": "assets/app.e5198d1b.js",
     "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/vendor/css/main.css": {
+    "file": "assets/main.15317dda.css",
+    "src": "resources/vendor/css/main.css",
     "isEntry": true
   },
   "resources/vendor/css/jquery.classycountdown.min.css": {
@@ -57,13 +66,8 @@
     "src": "resources/vendor/css/jquery.classycountdown.min.css",
     "isEntry": true
   },
-  "resources/vendor/css/main.css": {
-    "file": "assets/main.d06ea18c.css",
-    "src": "resources/vendor/css/main.css",
-    "isEntry": true
-  },
   "resources/css/app.css": {
-    "file": "assets/app.1f5e68e9.css",
+    "file": "assets/app.7488590f.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }

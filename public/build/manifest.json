@@ -1,8 +1,4 @@
 {
-  "resources/images/seo_banner.png": {
-    "file": "assets/seo_banner.c1ad45f5.png",
-    "src": "resources/images/seo_banner.png"
-  },
   "resources/images/play.png": {
     "file": "assets/play.caeaf4b4.png",
     "src": "resources/images/play.png"
@@ -10,6 +6,10 @@
   "resources/images/stopwatch.png": {
     "file": "assets/stopwatch.dcaad8ac.png",
     "src": "resources/images/stopwatch.png"
+  },
+  "resources/images/seo_banner.png": {
+    "file": "assets/seo_banner.c1ad45f5.png",
+    "src": "resources/images/seo_banner.png"
   },
   "resources/images/thanks-giving-bg.png": {
     "file": "assets/thanks-giving-bg.6d04bcbb.png",
@@ -67,7 +67,7 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.7488590f.css",
+    "file": "assets/app.9f24b392.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }

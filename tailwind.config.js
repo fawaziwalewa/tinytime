@@ -19,6 +19,9 @@ module.exports = {
       },
       backgroundImage:{
         'thanks-giving': 'resources/images/thanks-giving-bg.png'
+      },
+      boxShadow: {
+        'custom': '-4.79792px 4.79792px 2.74167px #9D6537, 4.79792px 4.79792px 2.74167px #9D6537, -4.79792px -4.79792px 2.74167px #9D6537, 4.79792px -4.79792px 2.74167px #9D6537',
       }
     },
   },

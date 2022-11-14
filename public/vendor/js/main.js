@@ -22,6 +22,7 @@ $(document).ready(function () {
                 $(".success_msg").html(
                     "<p class='mt-2 text-green-500 font-bold cursor-pointer removeElem'><strong>Your Request was successfully sent.</strong> Thank you!</p>"
                 );
+                $('#input').val("");
             },
             error: function (xhr, err) {
                 var err = eval("(" + xhr.responseText + ")");
@@ -36,6 +37,7 @@ $(document).ready(function () {
                         err.message +
                         "</p>"
                 );
+                $('#input').val("");
             },
         });
         return false;
@@ -235,5 +237,33 @@ $(document).ready(function () {
         $(this).addClass('bg-white');
         $('.signin').addClass('hidden');
         $('.signup').removeClass('hidden');
+    });
+    
+    /* Subscription controls */
+    $('.btn-free').click(function (e) { 
+        e.preventDefault();
+        $('.free').removeClass('hidden');
+        $('.premium').addClass('hidden');
+        $('.lifetime').addClass('hidden');
+    });
+    $('.btn-premium').click(function (e) { 
+        e.preventDefault();
+        $('.premium').removeClass('hidden');
+        $('.free').addClass('hidden');
+        $('.lifetime').addClass('hidden');
+    });
+    $('.btn-lifetime').click(function (e) { 
+        e.preventDefault();
+        $('.lifetime').removeClass('hidden');
+        $('.free').addClass('hidden');
+        $('.premium').addClass('hidden');
+    });
+    $('.btn-switch-p').click(function (e) { 
+        e.preventDefault();
+        $('.btn-switch-p').removeClass('bg-thanks-giving-secondary');
+        $('.btn-switch-p').removeClass('text-thanks-giving-primary');
+        $('.btn-switch-p').addClass('text-thanks-giving-secondary');
+        $(this).addClass('bg-thanks-giving-secondary');
+        $(this).addClass('text-thanks-giving-primary');
     });
 })(jQuery);

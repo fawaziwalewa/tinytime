@@ -76,7 +76,11 @@ class SubscribersController extends Controller
         $unsubscribe->email = $request->email;
         $unsubscribe->hash = Str::random(15);
         $unsubscribe->save();
-        $url = config('app.url')."unsubscribe/".$unsubscribe->hash;
+        if (substr(config('app.url'), -1) == "/") {
+            $url = config('app.url')."unsubscribe/".$unsubscribe->hash;
+        }else{
+            $url = config('app.url')."/unsubscribe/".$unsubscribe->hash;
+        }
         
         Mail::to($request->email)->send(new Subscription($url));
         return "success";

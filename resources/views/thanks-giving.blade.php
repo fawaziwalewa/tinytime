@@ -47,7 +47,7 @@
             @else
                 <p class="text-start cursor-pointer text-thanks-giving-secondary font-semibold drop-shadow lg:ml-0 ml-6" id="sign">SignIn/SignUp</p>
             @endauth
-            
+
             <h1 class="text-5xl text-thanks-giving-secondary mt-5 font-sacramento">Tiny Time</h1>
             <h2 class="text-thanks-giving-secondary">Time to get organized and be productive.</h2>
             <div class="flex items-center mt-3 px-10 md:px-5">
@@ -141,7 +141,7 @@
                             </div>
                        </div>
                     </div>
-                </div> 
+                </div>
                 <div class="bg-thanks-giving-secondary w-10 md:h-44 h-24 rounded-r"></div>
             </div>
         </div>
@@ -182,10 +182,10 @@
     </footer>
      {{-- modal 1 --}}
      @include('modals.custom')
-    
+
      {{-- modal 2--}}
      @include('modals.share')
-     
+
      {{-- modal 3 --}}
      @include('modals.sign')
 
@@ -199,3 +199,4 @@
     <script src="../vendor/js/main.js"></script>
     @livewireScripts
 </body>
+</html>

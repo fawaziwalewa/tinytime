@@ -1,3 +1,88 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Ketupat Ramadhan';
+    src: url('../../resources/fonts/ramadan_font.ttf') format('truetype');
+}
+
+
+
+@layer utilities {
+    .btn.btn-dark,
+
+    .timer {
+        background: linear-gradient(180deg, #5C6467 0%, #383C3D 49.48%, #242829 100%) !important;
+    }
+
+    .btn::before,
+    .timer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 10px;
+        padding: 5px;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+
+    .btn.btn-dark::before,
+    .timer::before {
+        background: linear-gradient(180deg, #818B90 0%, #1F2324 100%);
+    }
+
+    .btn.btn-green {
+        background: linear-gradient(180deg, #198754 0%, #105535 49.48%, #022414 100%, #082819 100%) !important;
+    }
+
+    .btn.btn-green::before {
+        background: linear-gradient(180deg, #368F65 0%, #0E462C 100%);
+    }
+
+    .btn.btn-orange {
+        background: linear-gradient(180deg, #CC6916 0%, #95490A 49.48%, #89460E 100%) !important;
+    }
+
+    .btn.btn-orange::before {
+        background: linear-gradient(180deg, #FFAB65 0%, #984A08 100%);
+    }
+
+    .btn.btn-brown {
+        background: linear-gradient(180deg, #6B3B13 0%, #4E2C0F 49.48%, #3C210A 100%) !important;
+    }
+
+    .btn.btn-brown::before {
+        background: linear-gradient(180deg, #95633A 0%, #4E2C11 100%);
+    }
+
+    .btn.btn-purple {
+        background: linear-gradient(180deg, #6C133F 0%, #4A0F2D 49.48%, #370920 100%) !important;
+    }
+
+    .btn.btn-purple::before {
+        background: linear-gradient(180deg, #983B69 0%, #4E102F 100%);
+    }
+
+    .btn.btn-gray {
+        background: linear-gradient(180deg, #616970 0%, #41464B 49.48%, #34383C 100%) !important;
+    }
+
+    .btn.btn-gray::before {
+        background: linear-gradient(180deg, #8D959B 0%, #44494E 100%);
+    }
+
+    .btn.btn-blue {
+        background: linear-gradient(180deg, #14386E 0%, #0F294E 49.48%, #091D3A 100%) !important;
+    }
+
+    .btn.btn-blue::before {
+        background: linear-gradient(180deg, #3D649E 0%, #11294E 100%);
+    }
+
+    .time {
+        background: url('../../resources/images/timer-bg.png');
+    }
+}

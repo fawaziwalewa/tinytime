@@ -1,19 +1,35 @@
 {
+  "resources/fonts/ramadan_font.ttf": {
+    "file": "assets/ramadan_font.0e42d43b.ttf",
+    "src": "resources/fonts/ramadan_font.ttf"
+  },
   "resources/images/play.png": {
     "file": "assets/play.caeaf4b4.png",
     "src": "resources/images/play.png"
-  },
-  "resources/images/stopwatch.png": {
-    "file": "assets/stopwatch.dcaad8ac.png",
-    "src": "resources/images/stopwatch.png"
   },
   "resources/images/seo_banner.png": {
     "file": "assets/seo_banner.c1ad45f5.png",
     "src": "resources/images/seo_banner.png"
   },
+  "resources/images/stopwatch.png": {
+    "file": "assets/stopwatch.dcaad8ac.png",
+    "src": "resources/images/stopwatch.png"
+  },
+  "resources/images/ramadan.jpeg": {
+    "file": "assets/ramadan.f87fa616.jpeg",
+    "src": "resources/images/ramadan.jpeg"
+  },
+  "resources/images/timer-bg.png": {
+    "file": "assets/timer-bg.4d5f2167.png",
+    "src": "resources/images/timer-bg.png"
+  },
   "resources/images/thanks-giving-bg.png": {
     "file": "assets/thanks-giving-bg.6d04bcbb.png",
     "src": "resources/images/thanks-giving-bg.png"
+  },
+  "resources/images/bg.jpg": {
+    "file": "assets/bg.c51cde2b.jpg",
+    "src": "resources/images/bg.jpg"
   },
   "resources/vendor/video/nature.mp4": {
     "file": "assets/nature.2788ee97.mp4",
@@ -31,13 +47,13 @@
     "file": "assets/fontawesome-webfont.c812ddc9.woff",
     "src": "resources/vendor/fonts/fontawesome-webfont.woff"
   },
-  "resources/vendor/fonts/Flaticon.svg": {
-    "file": "assets/Flaticon.dbfde333.svg",
-    "src": "resources/vendor/fonts/Flaticon.svg"
-  },
   "resources/vendor/fonts/fontawesome-webfont.ttf": {
     "file": "assets/fontawesome-webfont.7b5a4320.ttf",
     "src": "resources/vendor/fonts/fontawesome-webfont.ttf"
+  },
+  "resources/vendor/fonts/Flaticon.svg": {
+    "file": "assets/Flaticon.dbfde333.svg",
+    "src": "resources/vendor/fonts/Flaticon.svg"
   },
   "resources/vendor/fonts/fontawesome-webfont.svg": {
     "file": "assets/fontawesome-webfont.8b4822b9.svg",
@@ -56,18 +72,18 @@
     "src": "resources/js/app.js",
     "isEntry": true
   },
-  "resources/vendor/css/jquery.classycountdown.min.css": {
-    "file": "assets/jquery.classycountdown.min.750cb276.css",
-    "src": "resources/vendor/css/jquery.classycountdown.min.css",
-    "isEntry": true
-  },
   "resources/vendor/css/main.css": {
     "file": "assets/main.15317dda.css",
     "src": "resources/vendor/css/main.css",
     "isEntry": true
   },
+  "resources/vendor/css/jquery.classycountdown.min.css": {
+    "file": "assets/jquery.classycountdown.min.750cb276.css",
+    "src": "resources/vendor/css/jquery.classycountdown.min.css",
+    "isEntry": true
+  },
   "resources/css/app.css": {
-    "file": "assets/app.9f24b392.css",
+    "file": "assets/app.7972206a.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }

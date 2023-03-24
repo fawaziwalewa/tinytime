@@ -22,7 +22,8 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    return view('thanks-giving');
+    // return view('thanks-giving');
+    return view('ramadan');
 })->name("landingPage");
 
 Auth::routes();
@@ -33,13 +34,13 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
- 
+
     return redirect('/dashboard');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
- 
+
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
@@ -55,11 +56,11 @@ Route::middleware(['2fa', 'auth'])->group(function () {
     })->name('history');
 
     Route::get('/profile', function () {
-        
+
     })->name('profile');
 
     Route::get('/upgrade', function () {
-        
+
     })->name('upgrade');
 });
 
@@ -83,9 +84,9 @@ Route::post('/custom-timer', function(Request $request){
     $generate_link->name = $request->name;
     $generate_link->description = $request->description;
     $generate_link->save();
-    
+
     return response()->json(['link' => $generate_link->link_id ]);
-    
+
 })->name('customUrl');
 
 Route::get('/custom-timer/{link_id}', function(Request $request){
@@ -132,7 +133,7 @@ Route::get('/privacy-policy', function(){
 Route::get('/auth/google/redirect', function () {
     return Socialite::driver('google')->redirect();
 })->name('google.login');
- 
+
 Route::get('/auth/google/callback', function () {
     $googleUser = Socialite::driver('google')->user();
 
@@ -144,9 +145,9 @@ Route::get('/auth/google/callback', function () {
         'password' =>  Str::random(40),
         'email_verified_at' =>  now(),
     ]);
- 
+
     Auth::login($user);
- 
+
     return redirect('/dashboard');
 });
 
@@ -154,7 +155,7 @@ Route::get('/auth/google/callback', function () {
 Route::get('/auth/facebook/redirect', function () {
     return Socialite::driver('facebook')->redirect();
 })->name('facebook.login');
- 
+
 Route::get('/auth/facebook/callback', function () {
     $facebookUser = Socialite::driver('facebook')->user();
 
@@ -166,9 +167,9 @@ Route::get('/auth/facebook/callback', function () {
         'password' =>  Str::random(40),
         'email_verified_at' => now(),
     ]);
- 
+
     Auth::login($user);
- 
+
     return redirect('/dashboard');
 });
 
@@ -176,7 +177,7 @@ Route::get('/auth/facebook/callback', function () {
 Route::get('/auth/twitter/redirect', function () {
     return Socialite::driver('twitter')->redirect();
 })->name('twitter.login');
- 
+
 Route::get('/auth/twitter/callback', function () {
     $twitterUser = Socialite::driver('twitter')->user();
 
@@ -188,9 +189,9 @@ Route::get('/auth/twitter/callback', function () {
         'password' =>  Str::random(40),
         'email_verified_at' => now(),
     ]);
- 
+
     Auth::login($user);
- 
+
     return redirect('/dashboard');
 });
 
@@ -198,7 +199,7 @@ Route::get('/auth/twitter/callback', function () {
 Route::get('/auth/twitch/redirect', function () {
     return Socialite::driver('twitch')->redirect();
 })->name('twitch.login');
- 
+
 Route::get('/auth/twitch/callback', function () {
     $twitchUser = Socialite::driver('twitch')->user();
 
@@ -210,9 +211,9 @@ Route::get('/auth/twitch/callback', function () {
         'password' =>  Str::random(40),
         'email_verified_at' => now(),
     ]);
- 
+
     Auth::login($user);
- 
+
     return redirect('/dashboard');
 });
 

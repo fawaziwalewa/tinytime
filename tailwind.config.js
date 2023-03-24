@@ -13,10 +13,12 @@ module.exports = {
         'thanks-giving-trans' : 'rgba(255, 255, 255, 0.26)',
         'thanks-giving-linear' : 'rgba(211, 172, 135, 0.21)',
         'thanks-giving-border' : 'rgba(201, 123, 72, 0.23)',
+        'gray': '#EAECEB',
       },
       fontFamily: {
         'sacramento':  ['Sacramento', 'cursive'],
         'poppins': ['Poppins', 'sans-serif'],
+        'ramadan': 'Ketupat Ramadhan',
       },
       backgroundImage:{
         'thanks-giving': 'resources/images/thanks-giving-bg.png'

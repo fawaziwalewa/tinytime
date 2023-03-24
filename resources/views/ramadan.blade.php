@@ -35,7 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
     @livewireStyles
 </head>
-<body class="w-full max-w-screen-xl mx-auto">
+<body class="w-full">
     <main class="bg-[url('../../resources/images/ramadan.jpeg')] bg-contain w-full min-h-screen bg-center">
         <header class="max-w-4xl mx-auto">
             <nav class="flex justify-between px-8 py-4">

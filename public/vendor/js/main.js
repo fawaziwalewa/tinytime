@@ -8,6 +8,9 @@ $(document).ready(function () {
         $("#submit i").addClass(
             "fa fa-spinner fa-spin"
         );
+        $(".success_msg").html(
+            "<p class='mt-2 text-red-500 font-bold cursor-pointer removeElem'><strong>Processing...</strong></p>"
+        );
         $.ajax({
             url: "/subscribers",
             type: "post",
@@ -229,6 +232,10 @@ $(document).ready(function () {
         $(this).addClass('bg-white');
         $('.signup').addClass('hidden');
         $('.signin').removeClass('hidden');
+        $('.signin').addClass('active');
+        $('.signup').removeClass('active');
+        $('#register').removeClass('canSubmit');
+        $('#login').addClass('canSubmit');
     });
     $('.signUpBtn').click(function (e) { 
         e.preventDefault();
@@ -237,6 +244,23 @@ $(document).ready(function () {
         $(this).addClass('bg-white');
         $('.signin').addClass('hidden');
         $('.signup').removeClass('hidden');
+        $('.signup').addClass('active');
+        $('.signin').removeClass('active');
+        $('#login').removeClass('canSubmit');
+        $('#register').addClass('canSubmit');
+    });
+    // Control Active form
+    document.addEventListener('DOMContentLoaded', () => {
+        Livewire.hook('element.updated', (el, component) => {
+            $('.signin.active > div > form').addClass("canSubmit");
+            $('.signup.active > div > form').addClass("canSubmit");
+       })
+    })
+
+    $('#signSubmit').click(function (e) { 
+        e.preventDefault();
+        // Trigger submit for active form
+        $('.canSubmit > .submitBtn').trigger('click');
     });
     
     /* Subscription controls */

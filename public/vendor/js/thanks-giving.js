@@ -685,12 +685,12 @@
                 c(this).css("margin-top", Math.floor(0 - parseInt(c(this).height(), 10) / 2) + "px")
             });
             b.labels && ($(".ClassyCountdown-days .ClassyCountdown-value > span").html(b.labelsOptions.lang.days), $(".ClassyCountdown-hours .ClassyCountdown-value > span").html(b.labelsOptions.lang.hours), $(".Countdown-minutes .ClassyCountdown-value > span").html(b.labelsOptions.lang.minutes), $(".ClassyCountdown-seconds .ClassyCountdown-value > span").html(b.labelsOptions.lang.seconds), $(".ClassyCountdown-value > span").attr("style", b.labelsOptions.style));
-            const date1 = new Date();
-            const date2 = new Date('11/24/2022');
-            const diffTime = Math.abs(date2 - date1);
-            const milliseconds = Math.ceil(diffTime / 1000); 
+            // const date1 = new Date();
+            // const date2 = new Date('11/24/2022');
+            // const diffTime = Math.abs(date2 - date1);
+            // const milliseconds = Math.ceil(diffTime / 1000); 
             // console.log(date1 + " milliseconds");
-            d = milliseconds; /* b.end - b.now */ /* 301 secs */
+            d = 301; /* b.end - b.now */ /* milliseconds*/
             l()
         })();
         m();
@@ -778,7 +778,7 @@
             interval = setInterval(m, 1E3);
             return false;
         }
-        start()
+        // start()
         function counterStart() {
             clearInterval(interval);
             var daysVal = $(".Countdown-days").html();

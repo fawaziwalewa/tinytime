@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ Vite::asset('resources/images/stopwatch.png') }}">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Custom Stylesheet -->
+    <!-- Custom Stylesheet and JS -->
     @vite(['resources/js/app.js', 'resources/vendor/css/main.css', 'resources/vendor/css/jquery.classycountdown.min.css'])
     @vite('resources/css/app.css')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -37,11 +37,18 @@
             background-image: url('{{ Vite::asset("resources/images/thanks-giving-bg.png") }}');
         }
     </style>
+     @livewireStyles
 </head>
 <body class="flex flex-col items-center bg-thanks-giving-secondary min-h-screen relative mb-0 overflow-x-hidden">
     <header class="w-full text-white text-center py-5 relative bg-cover bg-no-repeat md:bg-repeat md:bg-contain">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-5xl text-thanks-giving-secondary font-sacramento">Tiny Time</h1>
+            @auth
+                <p class="text-start cursor-pointer text-thanks-giving-secondary font-semibold drop-shadow lg:ml-0 ml-6"><a href="{{ route("dashboard") }}">Dashboard</a></p>
+            @else
+                <p class="text-start cursor-pointer text-thanks-giving-secondary font-semibold drop-shadow lg:ml-0 ml-6" id="sign">SignIn/SignUp</p>
+            @endauth
+            
+            <h1 class="text-5xl text-thanks-giving-secondary mt-5 font-sacramento">Tiny Time</h1>
             <h2 class="text-thanks-giving-secondary">Time to get organized and be productive.</h2>
             <div class="flex items-center mt-3 px-10 md:px-5">
                 <div class="bg-thanks-giving-secondary w-10 md:h-44 h-24 rounded-l"></div>
@@ -185,8 +192,10 @@
      {{-- modal 4 --}}
      @include('modals.subscription')
 
+     {{-- <script src="/vendor/js/jquery.classycountdown.min.js"></script> --}}
      <script src="/vendor/js/thanks-giving.js"></script>
     <script src="/vendor/js/jquery.knob.js"></script>
     <script src="/vendor/js/jquery.throttle.js"></script>
     <script src="../vendor/js/main.js"></script>
+    @livewireScripts
 </body>

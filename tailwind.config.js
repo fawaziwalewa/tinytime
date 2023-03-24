@@ -16,6 +16,7 @@ module.exports = {
       },
       fontFamily: {
         'sacramento':  ['Sacramento', 'cursive'],
+        'poppins': ['Poppins', 'sans-serif'],
       },
       backgroundImage:{
         'thanks-giving': 'resources/images/thanks-giving-bg.png'

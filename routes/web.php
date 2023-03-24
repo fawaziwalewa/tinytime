@@ -23,7 +23,7 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('thanks-giving');
-});
+})->name("landingPage");
 
 Auth::routes();
 
@@ -34,7 +34,7 @@ Route::get('/email/verify', function () {
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
  
-    return redirect('/home');
+    return redirect('/dashboard');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
@@ -43,11 +43,25 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['2fa']);
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard')->middleware(['2fa']);
+
+Route::middleware(['2fa', 'auth'])->group(function () {
+    Route::get('/history', function () {
+        return view("history");
+    })->name('history');
+
+    Route::get('/profile', function () {
+        
+    })->name('profile');
+
+    Route::get('/upgrade', function () {
+        
+    })->name('upgrade');
+});
 
 Route::post('/custom-timer', function(Request $request){
     $request->validate([
@@ -133,7 +147,7 @@ Route::get('/auth/google/callback', function () {
  
     Auth::login($user);
  
-    return redirect('/home');
+    return redirect('/dashboard');
 });
 
 // Facebook Login
@@ -155,7 +169,7 @@ Route::get('/auth/facebook/callback', function () {
  
     Auth::login($user);
  
-    return redirect('/home');
+    return redirect('/dashboard');
 });
 
 // Twitter Login
@@ -177,7 +191,7 @@ Route::get('/auth/twitter/callback', function () {
  
     Auth::login($user);
  
-    return redirect('/home');
+    return redirect('/dashboard');
 });
 
 // Twitch Login
@@ -199,7 +213,7 @@ Route::get('/auth/twitch/callback', function () {
  
     Auth::login($user);
  
-    return redirect('/home');
+    return redirect('/dashboard');
 });
 
 /* Google 2FA */
@@ -211,7 +225,7 @@ Route::group(['prefix'=>'2fa'], function(){
 
     // 2fa middleware
     Route::post('/2faVerify', function () {
-        return redirect('/home');
+        return redirect('/dashboard');
     })->name('2faVerify')->middleware('2fa');
 });
 
@@ -235,3 +249,15 @@ Route::get('/module/{link_id}', function(Request $request){
     $date = "$endDate $hour:$minute:$second";
     return view('module.index', compact('date', 'timer_type', 'created_at'));
 });
+
+
+
+// Force redirect
+
+// Route::get("/login", function(){
+//     return redirect()->route("landingPage");
+// })->name("login");
+
+// Route::get("/register", function(){
+//     return redirect()->route("landingPage");
+// })->name("register");

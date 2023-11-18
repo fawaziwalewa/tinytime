@@ -36,7 +36,7 @@
     @livewireStyles
 </head>
 <body class="w-full">
-    <main class="bg-[url('../../resources/images/ramadan.jpeg')] bg-contain w-full min-h-screen bg-center">
+    <main class="bg-[url('../../resources/images/ramadan.jpeg')] bg-cover w-full min-h-screen bg-center">
         <header class="max-w-4xl mx-auto">
             <nav class="flex justify-between px-8 py-4">
                 <svg class="cursor-pointer w-7" viewbox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +68,7 @@
                     <button type="button" class="relative w-[85px] px-4 py-2 rounded-2xl btn shadow btn-dark" id="thiMin">30 min</button>
                     <button type="button" class="relative w-[85px] px-4 py-2 rounded-2xl btn shadow btn-dark" id="oneHour">1 hr</button>
                 </div>
-                <h1 class="mt-5 text-5xl font-bold font-ramadan text-[linear-gradient(92.74deg,_#FFFFFF_0%,_#C0C0C0_100%)]">Ramadan Kareem</h1>
+                <!--<h1 class="mt-5 text-5xl font-bold font-ramadan text-[linear-gradient(92.74deg,_#FFFFFF_0%,_#C0C0C0_100%)]">Ramadan Kareem</h1>-->
             </div>
             <div class="relative max-w-3xl mx-auto mt-5 md:p-8 rounded-2xl md:timer text-gray">
                 <div class="flex flex-col justify-around gap-4 text-center md:flex-row text-7xl">

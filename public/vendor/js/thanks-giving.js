@@ -685,12 +685,11 @@
                 c(this).css("margin-top", Math.floor(0 - parseInt(c(this).height(), 10) / 2) + "px")
             });
             b.labels && ($(".ClassyCountdown-days .ClassyCountdown-value > span").html(b.labelsOptions.lang.days), $(".ClassyCountdown-hours .ClassyCountdown-value > span").html(b.labelsOptions.lang.hours), $(".Countdown-minutes .ClassyCountdown-value > span").html(b.labelsOptions.lang.minutes), $(".ClassyCountdown-seconds .ClassyCountdown-value > span").html(b.labelsOptions.lang.seconds), $(".ClassyCountdown-value > span").attr("style", b.labelsOptions.style));
-            // const date1 = new Date();
-            // const date2 = new Date('11/24/2022');
-            // const diffTime = Math.abs(date2 - date1);
-            // const milliseconds = Math.ceil(diffTime / 1000); 
-            // console.log(date1 + " milliseconds");
-            d = 301; /* b.end - b.now */ /* milliseconds*/
+            const date1 = new Date();
+            const date2 = new Date('Thu, Nov 23, 2023');
+            const diffTime = Math.abs(date2 - date1);
+            const milliseconds = Math.ceil(diffTime / 1000); // thanks giving
+            d = milliseconds; // 301 default time in milliseconds
             l()
         })();
         m();
@@ -778,7 +777,7 @@
             interval = setInterval(m, 1E3);
             return false;
         }
-        // start()
+        start()
         function counterStart() {
             clearInterval(interval);
             var daysVal = $(".Countdown-days").html();
@@ -1036,10 +1035,10 @@
             // timerDate.setMinutes(parseInt(timerDate.getMinutes()) + parseInt(minutes));
             // timerDate.setSeconds(parseInt(timerDate.getSeconds()) + parseInt(seconds));
             // var dd = timerDate.getDate();
-            // var mm = timerDate.getMonth()+1; 
+            // var mm = timerDate.getMonth()+1;
             // var yyyy = timerDate.getFullYear();
-            // if(dd<10){dd='0'+dd} 
-            // if(mm<10){mm='0'+mm} 
+            // if(dd<10){dd='0'+dd}
+            // if(mm<10){mm='0'+mm}
             // $('#date1').val(yyyy+'-'+mm+'-'+dd);
             // $('#hour1').val(timerDate.getHours());
             // $('#minute1').val(timerDate.getMinutes());
@@ -1064,11 +1063,11 @@
             timerDate.setSeconds(parseInt(timerDate.getUTCSeconds()) + parseInt(seconds));
 
             var dd = timerDate.getDate();
-            var mm = timerDate.getMonth()+1; 
+            var mm = timerDate.getMonth()+1;
             var yyyy = timerDate.getFullYear();
 
-            if(dd<10){dd='0'+dd} 
-            if(mm<10){mm='0'+mm} 
+            if(dd<10){dd='0'+dd}
+            if(mm<10){mm='0'+mm}
 
             const date1 = yyyy+'-'+mm+'-'+dd;
             const hour1 = timerDate.getHours();
@@ -1080,10 +1079,10 @@
                 hour1,
                 minute1,
                 second1
-            }; 
+            };
         }
-        
-        $("#generateLinkForm").submit(function (e) { 
+
+        $("#generateLinkForm").submit(function (e) {
             e.preventDefault();
             let result = convertDateToUTC();
             $.ajax({
@@ -1101,7 +1100,7 @@
                 },
                 success: function (response) {
                     // $('#emBedLink').val('<iframe src="https://tinyti.me/custom-timer/'+response.link+'" width="100%" height="300"></iframe>');
-                    $('#generated_url').val('https://tinyti.me/custom-timer/'+response.link); 
+                    $('#generated_url').val('https://tinyti.me/custom-timer/'+response.link);
                     $('#generatedLink').removeClass('hidden');
                     // $('#emBedLinkDiv').removeClass('hidden');
                     $('#generateLinkForm > .message').html("<p class='text-green-700 cursor-pointer removeElem'><strong>Success!</strong> The Generated Link is only available before the timer runs out. Once the timer runs out, they will expire.</p>");
@@ -1110,7 +1109,7 @@
                 error: function(xhr, err) {
                     var err = eval("(" + xhr.responseText + ")");
                     $('#generateLinkForm > .message').html("<p class='text-red-700 cursor-pointer removeElem'><strong>Opps!</strong> " + err.message + "</p>");
-                }  
+                }
             });
         });
 

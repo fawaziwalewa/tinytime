@@ -42,11 +42,11 @@
 <body class="flex flex-col items-center bg-thanks-giving-secondary min-h-screen relative mb-0 overflow-x-hidden">
     <header class="w-full text-white text-center py-5 relative bg-cover bg-no-repeat md:bg-repeat md:bg-contain">
         <div class="max-w-3xl mx-auto">
-            @auth
+            {{-- @auth
                 <p class="text-start cursor-pointer text-thanks-giving-secondary font-semibold drop-shadow lg:ml-0 ml-6"><a href="{{ route("dashboard") }}">Dashboard</a></p>
             @else
                 <p class="text-start cursor-pointer text-thanks-giving-secondary font-semibold drop-shadow lg:ml-0 ml-6" id="sign">SignIn/SignUp</p>
-            @endauth
+            @endauth --}}
 
             <h1 class="text-5xl text-thanks-giving-secondary mt-5 font-sacramento">Tiny Time</h1>
             <h2 class="text-thanks-giving-secondary">Time to get organized and be productive.</h2>

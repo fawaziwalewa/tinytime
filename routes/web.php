@@ -22,8 +22,8 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    // return view('thanks-giving');
-    return view('ramadan');
+    return view('thanks-giving');
+    // return view('ramadan');
 })->name("landingPage");
 
 Auth::routes();

@@ -8,7 +8,7 @@
     <meta name="keywords"
         content="tinytime, time, tiny time, counter, timer, tinytime counter, tinytime timer, tiny time timer, tiny timer counter, time to get organized and be productive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ Vite::asset('resources/themes/new-year/images/stopwatch.png') }}">
+    <link rel="icon" href="{{ Vite::asset('resources/images/stopwatch.png') }}">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Custom Stylesheet and JS -->
     @vite(['resources/js/app.js', 'resources/vendor/css/main.css', 'resources/vendor/css/jquery.classycountdown.min.css'])
@@ -20,13 +20,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ config('app.name') }}" />
     <meta property="og:description" content="{{ config('app.description') }}" />
-    <meta property="og:image" content="{{ Vite::asset('resources/themes/new-year/images/seo_banner.png') }}" />
+    <meta property="og:image" content="{{ Vite::asset('resources/images/seo_banner.png') }}" />
 
     {{-- Twitter --}}
     <meta name="twitter:title" content="{{ config('app.name') }}" />
     <meta name="twitter:description" content="{{ config('app.description') }}" />
     <meta name="twitter:creator" content="@TinyTime" />
-    <meta name="twitter:image" content="{{ Vite::asset('resources/themes/new-year/images/seo_banner.png') }}">
+    <meta name="twitter:image" content="{{ Vite::asset('resources/images/seo_banner.png') }}">
     <meta name="twitter:domain" content="{{ config('app.url') }}" />
 
     {{-- Fonts --}}
